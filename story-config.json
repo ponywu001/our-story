@@ -1,0 +1,14 @@
+{
+  "relationshipStartDate": "2024-11-03",
+  "relationshipStartDateROC": "113/11/3",
+  "anniversaryDate": "2026-11-03",
+  "anniversaryDays": 730,
+  "displayDays": 730,
+  "dayCountMode": "fixed-anniversary",
+  "timeZone": "Asia/Taipei",
+  "chapter02": {
+    "title": "時間",
+    "counterLabel": "我們在一起的第 730 天",
+    "subtitle": "兩年了，故事還在繼續。"
+  }
+}
