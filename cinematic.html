@@ -85,7 +85,7 @@ const title=(cap,t,sub='')=>'<div class="hero"><div class="overline">'+cap+'</di
 function days(){const fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());const a=fmt.split('-').map(Number);return Math.max(0,Math.floor((Date.UTC(a[0],a[1]-1,a[2])-Date.UTC(2024,10,3))/86400000))}
 const sound=()=>'<button class="sound" id="musicToggle" aria-label="切換音樂">'+(music.paused?'♫ 播放':'♫ 暫停')+'</button>';
 function set(id){if(current===id)return;const prior=current,old=$('.scene.active');const token=++sceneToken;const enteringFour=id.startsWith('four')&&!prior.startsWith('four'),leavingFour=prior.startsWith('four')&&!id.startsWith('four');if(enteringFour){music.currentTime=0;music.play().catch(()=>{})}if(leavingFour){music.pause();music.currentTime=0}if(prior==='video'&&video)video.pause();
-let html=render(id);const wrap=document.createElement('div');wrap.innerHTML=html;let node=wrap.firstElementChild;app.appendChild(node);if(old){old.classList.remove('active');old.classList.add('exiting')}requestAnimationFrame(()=>requestAnimationFrame(()=>{node.classList.add('active')}));current=id;attach(id);setTimeout(()=>{if(token!==sceneToken)return;app.querySelectorAll('.scene:not(.active)').forEach(e=>e.remove())},1100)}
+let html=render(id);const wrap=document.createElement('div');wrap.innerHTML=html;let node=wrap.firstElementChild;app.appendChild(node);if(old){old.classList.remove('active');old.classList.add('exiting')}requestAnimationFrame(()=>requestAnimationFrame(()=>{node.classList.add('active')}));current=id;attach(id,node);setTimeout(()=>{if(token!==sceneToken)return;app.querySelectorAll('.scene:not(.active)').forEach(e=>e.remove())},1100)}
 function render(id){
 switch(id){
 case 'cover':return scene('cover','<div class="cover-accessible">輕觸畫面，開啟我們的故事</div>');
@@ -111,7 +111,7 @@ case 'video':return scene('video-scene',head('06','door')+'<div class="video-box
 case 'end':return scene('night',head('06','video')+'<div class="end-message"><div class="heart">♡</div><p>這些是我們一起走過的日子。</p><p>至於以後會寫下什麼樣的故事，<br>我還不知道。</p><p>但很謝謝妳，<br>出現在我的故事裡。</p><h1>兩週年快樂。♡</h1></div><div class="end-actions">'+button('再看一次影片','replay')+'<button class="ghost" id="restart">回到故事起點</button></div>');
 default:return scene('night',title('OUR STORY','未完待續'))}}
 function nav(id){const map={nextDays:'days',toMemories:'memories',toPuzzle:'puzzle',puzzleNext:'puzzleDone',startFour:'fourStars',toLessons:'fourLessons',toWalk:'fourWalk',toWish:'fourWish',toFourEnd:'fourEnd',toFive:'fiveBook',toPostcards:'fivePostcards',toPlane:'fivePlane',toFuture:'fiveFuture',toFinalBook:'fiveFinal',toDoor:'door'};if(map[id])set(map[id])}
-function attach(id){const root=$('.scene.active')||app.lastElementChild;
+function attach(id,root){
 root.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>set(b.dataset.next));
 root.querySelectorAll('.primary').forEach(b=>b.onclick=()=>nav(b.id));
 if(id==='cover'){root.setAttribute('tabindex','0');root.onclick=()=>set('envelope');root.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set('envelope')}}}
