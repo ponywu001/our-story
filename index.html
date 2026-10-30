@@ -1,547 +1,136 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>我們之間，未完待續</title><meta name="theme-color" content="#f8f0e9"><style>
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,"PingFang TC",sans-serif;color:#654b50;background:#f8efe8}button{cursor:pointer;font:inherit}main{min-height:100dvh}.view{min-height:100dvh;display:none;padding:calc(env(safe-area-inset-top) + 24px) 24px max(28px,env(safe-area-inset-bottom));flex-direction:column;animation:fade .65s both}.view.on{display:flex}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.cover{background:#282239 url('assets/cover.png') center/cover;color:#fff;justify-content:end;align-items:center}.cover button{background:#271d3277;color:#fff;border:1px solid #ffffff7d;backdrop-filter:blur(6px)}.btn{border:none;border-radius:40px;background:#b36f79;color:#fff;padding:15px 25px;margin:18px 0}.intro{background:radial-gradient(circle at 50% 30%,#99687c,#29233c);color:#fff;justify-content:center;text-align:center;align-items:center}.intro h2{font-weight:400;line-height:2;font-size:21px}.envelope{width:230px;height:155px;margin:35px auto;background:linear-gradient(135deg,#ffefe4,#ddb4ae);border:0;position:relative;box-shadow:0 18px 48px #160f2466;transform:rotate(-5deg)}.envelope:before{content:'';position:absolute;inset:0;background:#fff1e8;clip-path:polygon(0 0,50% 55%,100% 0)}.envelope span{position:absolute;top:58px;left:93px;background:#b46f79;color:white;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:25px}.paper{background:#f9f0e8;justify-content:center}.letter{background:#fffaf5;padding:35px 22px;box-shadow:0 15px 35px #76535a22;line-height:2.2;text-align:center}.letter h2{font-weight:400}.page{background:radial-gradient(circle at 80% 10%,#fffbf7,#f8efe8 60%,#efdbd2);gap:15px}.nav{display:flex;align-items:center;justify-content:space-between;color:#947a7d;font-size:12px;letter-spacing:.12em}.nav button{border:0;background:transparent;font-size:26px;color:#957078}.title{text-align:center;font:normal 26px Georgia,"Songti TC",serif;margin:16px 0 0}.hint{color:#96797e;text-align:center;line-height:1.9;font-size:14px}.flex{flex:1}.count{text-align:center;margin:20px 0;color:#a45e66;font:normal clamp(85px,22vw,136px) Georgia,serif}.count span{font:22px sans-serif;margin-left:8px}.datecard{background:#fffaf5;box-shadow:0 7px 25px #67424620;border:1px solid #f0ded5;text-align:center;padding:22px 12px;transform:rotate(-1deg)}.timeline{display:flex;flex-direction:column;gap:12px}.memory{background:#fffaf6;border:1px solid #efded6;border-radius:12px;padding:10px;display:flex;align-items:center;gap:12px;text-align:left;color:inherit;box-shadow:0 5px 14px #72505013}.memory img{width:90px;height:100px;object-fit:cover;border-radius:7px}.memory time{font-size:12px;color:#9c7980}.memory strong{display:block;margin:5px 0;font-size:14px}.memory small{line-height:1.6;color:#8c7175}.detail{justify-content:center}.photo{background:white;padding:10px 10px 25px;box-shadow:0 12px 30px #69494b33;transform:rotate(-1deg)}.photo img{display:block;width:100%;max-height:54dvh;object-fit:contain}.detail time,.detail h2,.detail p{text-align:center}.detail time{color:#9d757c;font-size:13px;margin:18px 0}.detail h2{font-size:21px;font-weight:500}.detail p{font-size:15px;line-height:2}.arrows{display:flex;justify-content:space-between}.arrows button{border:0;border-radius:24px;padding:12px;background:#fff9f3;color:#a2636d}.closing{justify-content:center;text-align:center}.closing article{font:20px/2 Georgia,"Songti TC",serif;background:#fffaf5;box-shadow:0 12px 30px #7a545526;padding:35px 15px;transform:rotate(-2deg)}@media(min-width:700px){main{width:430px;margin:auto;box-shadow:0 0 70px #0002}}@media(prefers-reduced-motion:reduce){.view{animation:none}}
-.clock-area{pointer-events:none;position:relative;width:min(78vw,300px);height:min(78vw,300px);margin:4px auto 0;touch-action:manipulation;user-select:none;-webkit-user-select:none;outline-offset:5px;cursor:pointer}.clock-svg{width:100%;height:100%;filter:drop-shadow(0 8px 18px #b88b8433)}.clock-face{fill:#fffaf5;stroke:#e8d7ce;stroke-width:2}.clock-ring{fill:none;stroke:#dcbeb6;stroke-width:2}#clockHand{transform-origin:130px 130px;transition:transform .07s linear}.clock-readout{position:absolute;left:0;right:0;bottom:37px;text-align:center;color:#a45e66;font-size:17px}.clock-readout strong{font:normal 45px Georgia,serif}.clock-area.pressed{filter:drop-shadow(0 0 12px #dca1a1)}.clock-area.finished .clock-svg{filter:drop-shadow(0 0 17px #e0a5a1)}#days{touch-action:none;user-select:none;-webkit-user-select:none}#days .btn{touch-action:manipulation}.clock-finish{color:#a45e66;text-align:center;font-size:13px;margin-top:3px}.letter-stack{display:flex;flex-direction:column;gap:12px;margin-top:12px}.sealed-letter{position:relative;width:100%;min-height:94px;border:1px solid #e5cfc7;border-radius:10px;background:linear-gradient(145deg,#fff9f2,#f0d9ce);padding:15px 17px;text-align:left;color:#714e56;box-shadow:0 7px 16px #7a50501c;touch-action:pan-y;user-select:none}.sealed-letter:before{content:"";position:absolute;inset:0;clip-path:polygon(0 0,50% 57%,100% 0);background:#f9e9e0;pointer-events:none;opacity:.6}.sealed-letter.open:before{opacity:0}.seal-icon{position:absolute;right:20px;top:29px;width:35px;height:35px;display:grid;place-items:center;background:#b57981;color:white;border-radius:50%;box-shadow:0 2px 8px #8c5a6070}.sealed-letter.open{background:#fffaf7;border-color:#d9b7ad}.sealed-letter time,.sealed-letter strong{position:relative;display:block}.sealed-letter time{font-size:12px;color:#97787b}.sealed-letter strong{font-size:14px;margin-top:9px}.sealed-letter small{position:relative;display:block;margin-top:7px;color:#aa7f80}.album-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.album-card{border:0;background:#fffdf8;padding:8px 8px 17px;text-align:center;box-shadow:0 8px 20px #7656592b;transform:rotate(-1deg);color:#76545b}.album-card:nth-child(even){transform:rotate(2deg)}.album-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover}.album-card span{display:block;font-size:12px;margin-top:11px}.btn:disabled{opacity:.38;cursor:not-allowed}#holdHint{margin:3px 0}/* iPhone 18 Pro / 16 Pro: one-screen chapters, only memory collections scroll */
-html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
-main{height:100dvh;min-height:0;overflow:hidden}
-.view{height:100dvh;min-height:0;max-height:100dvh;overflow:hidden;padding:calc(env(safe-area-inset-top) + 12px) 20px calc(env(safe-area-inset-bottom) + 12px)}
-.cover{cursor:pointer;touch-action:manipulation;position:relative}
-.cover-hint{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom) + 31px);text-align:center;color:#fff8f3;text-shadow:0 2px 9px #201020;font-size:13px;letter-spacing:.11em;pointer-events:none;animation:pulsehint 2.5s infinite}
-@keyframes pulsehint{50%{opacity:.55}}
-.page{gap:clamp(5px,1.2dvh,12px)}
-.title{margin:clamp(5px,1.3dvh,12px) 0 0;font-size:clamp(20px,3dvh,26px)}
-.hint{font-size:clamp(12px,1.65dvh,14px);line-height:1.55;margin:clamp(3px,.8dvh,9px) 0}
-.btn{margin:clamp(4px,.8dvh,10px) 0;padding:clamp(10px,1.5dvh,15px) 18px;flex-shrink:0}
-.clock-area{width:min(64vw,29dvh,266px);height:min(64vw,29dvh,266px);flex-shrink:0}
-.datecard{padding:clamp(9px,1.4dvh,19px) 9px;font-size:13px}
-#days{justify-content:space-between}
-#days .flex{flex:0 1 6px}
-#envelopes .letter-stack,#album .album-grid,#timeline .timeline{overflow-y:auto;min-height:0;flex:1;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:3px 3px 12px;touch-action:pan-y}
-#envelopes .sealed-letter{min-height:clamp(66px,10dvh,94px);padding:10px 13px}
-#envelopes .seal-icon{top:20px}
-#album .album-card img{aspect-ratio:4/4.5}
-#detail .photo{min-height:0;max-height:52dvh;padding:7px 7px 12px}
-#detail .photo img{max-height:46dvh}
-#detail .flex{flex:1 1 0;min-height:0}
-#detail h2{font-size:clamp(16px,2.2dvh,21px);margin:3px 0}
-#detail p{font-size:clamp(12px,1.8dvh,15px);line-height:1.6;margin:4px 0}
-#detail time{margin:5px 0}
-#letter .letter{max-height:82dvh;overflow-y:auto;padding:clamp(18px,3dvh,35px) 18px}
-#letter .letter p{font-size:clamp(13px,1.8dvh,16px);line-height:1.85}
-#closing article{font-size:clamp(16px,2.2dvh,20px);padding:clamp(20px,3dvh,35px) 12px}
-@media(min-width:700px){main{height:min(100dvh,844px);width:430px;border-radius:25px}.view{height:100%;min-height:0;max-height:100%}}
-/* Chapter 03: compact iPhone Pro drag and snap puzzle */
-.puzzle-chapter{position:relative;justify-content:space-between;background:radial-gradient(circle at 85% 15%,#fffaf5,#f8eee7 65%,#e9d2c9);gap:clamp(6px,1.3dvh,14px)}
-.puzzle-chapter .nav{flex:0 0 auto}
-.puzzle-intro-body,.puzzle-complete-body,.puzzle-collected-body{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(6px,1.6dvh,16px)}
-.puzzle-kicker{font-size:11px;letter-spacing:.25em;color:#a6797d}
-.intro-polaroid,.complete-polaroid{width:min(79vw,35dvh,310px);background:#fffaf5;padding:9px 9px 27px;box-shadow:0 16px 33px #704e5035;transform:rotate(-2deg)}
-.intro-polaroid img,.complete-polaroid img{width:100%;display:block;aspect-ratio:1.78;object-fit:cover}
-.puzzle-board{position:relative;width:min(86vw,40dvh,355px);aspect-ratio:1.78;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:2px;padding:3px;margin:0 auto;border-radius:9px;border:2px solid #d9bdb6;background:#e7d6ce;box-shadow:0 8px 24px #684d4c1d;flex:0 0 auto}
-.puzzle-target{position:relative;overflow:hidden;border:1px dashed #c8a29e;background:#fbf4ee;border-radius:3px}
-.puzzle-target::after{content:"♡";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#dfc8c4;font-size:23px}
-.puzzle-target.correct::after{display:none}
-.puzzle-fragment{border:0;border-radius:4px;background-image:url('assets/memory-puzzle.jpg');background-size:200% 200%;background-repeat:no-repeat;box-shadow:0 4px 11px #71474c46;touch-action:none;cursor:grab}
-.puzzle-fragment.placed{width:100%;height:100%;box-shadow:none;border-radius:1px;pointer-events:none}
-.puzzle-tray{display:flex;justify-content:space-around;align-items:center;gap:7px;min-height:0;flex:0 0 auto;width:100%;max-width:380px;margin:0 auto;padding:8px;background:#fffaf5;border-radius:12px;border:1px solid #ead7d0}
-.puzzle-tray .puzzle-fragment{width:min(19vw,75px);aspect-ratio:1.78;flex:0 1 auto}
-.puzzle-floating{position:fixed!important;pointer-events:none!important;z-index:9999;opacity:.95;transform:scale(1.08);box-shadow:0 10px 25px #49313d73}
-#puzzleHint{margin:0}
-#puzzleSkip{background:transparent;color:#967378;box-shadow:none;border:1px solid #d9b7b5;font-size:12px}
-#puzzlePlay{justify-content:space-between}
-#puzzlePlay .puzzle-board{margin-top:auto;margin-bottom:auto}
-#puzzlePlay .puzzle-tray{margin-top:5px}
-#puzzlePlay .btn{margin-bottom:0}
-#puzzleComplete .complete-polaroid{transition:transform .7s ease,opacity .65s ease}
-#puzzleComplete .complete-polaroid img{aspect-ratio:1.78}
-#puzzleComplete.arrive .complete-polaroid{animation:photoarrival .9s both}
-#puzzleComplete.collecting .complete-polaroid{transform:translateY(17dvh) scale(.22) rotate(7deg);opacity:0}
-@keyframes photoarrival{from{transform:translateY(25px) scale(.9) rotate(-5deg);opacity:0}to{transform:rotate(-2deg);opacity:1}}
-.collected-book{width:min(78vw,32dvh,260px);aspect-ratio:4/5;background:#c69291;border-radius:7px 15px 15px 7px;box-shadow:10px 12px 24px #6c4a513b,inset 6px 0 7px #87586042;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:22px}
-.collected-photo{background:#fffaf5;padding:7px 7px 22px;transform:rotate(-5deg);box-shadow:0 7px 16px #684b502e;width:85%}
-.collected-photo img{display:block;width:100%;aspect-ratio:1.78;object-fit:cover}
-.book-label{color:#fff9f2;font:12px Georgia,serif;letter-spacing:.15em}
-@media(max-height:730px){.puzzle-chapter .title{font-size:19px}.puzzle-board{width:min(79vw,35dvh,320px)}.puzzle-tray{padding:5px}.puzzle-tray .puzzle-fragment{width:min(17vw,65px)}}
-#prev[hidden],#next[hidden]{display:none!important}.arrows{min-height:42px;align-items:center}.heart-area{width:min(70vw,34dvh,285px);height:min(70vw,34dvh,285px);filter:drop-shadow(0 10px 20px #b37e8130)}.heart-readout{position:absolute;top:47%;left:0;right:0;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#995e68;text-shadow:0 1px 3px #fff5ed55;pointer-events:none;transition:color .25s}.heart-readout.light{color:#fffaf5;text-shadow:0 1px 5px #82485566}.heart-readout strong{font:normal clamp(30px,5dvh,47px) Georgia,serif}.heart-readout small{font-size:15px}.heart-area.finished{animation:heartbeat .8s ease-in-out 1}@keyframes heartbeat{50%{transform:scale(1.055)}}.memory-letter-view{background:radial-gradient(circle at 50% 15%,#fffaf5,#f6eae1);justify-content:space-between;gap:12px}.memory-letter-stage{position:relative;flex:1;min-height:0;display:flex;justify-content:center;align-items:center;perspective:1000px;overflow:hidden}.animated-envelope{position:absolute;width:min(73vw,290px);height:185px;transform:scale(.84);transition:transform .46s cubic-bezier(.2,.7,.2,1),opacity .5s;filter:drop-shadow(0 15px 23px #68455044);z-index:2}.animated-envelope.zoom{transform:scale(1.12)}.envelope-back{position:absolute;inset:0;border-radius:7px;background:#dcb9af}.envelope-sheet{position:absolute;left:10%;top:11%;width:80%;height:76%;background:#fffbf6;border-radius:5px;transition:transform .65s .65s}.envelope-front{position:absolute;inset:0;background:linear-gradient(140deg,#f6e1d8,#e6c3b7);clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);z-index:3}.envelope-flap{position:absolute;top:0;left:0;width:100%;height:64%;background:#f7e6de;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .48s .28s;z-index:5;backface-visibility:hidden}.animated-seal{position:absolute;top:34%;left:calc(50% - 22px);width:44px;height:44px;border-radius:50%;background:#b47680;color:#fff;display:grid;place-items:center;z-index:6;transition:opacity .3s}.animated-envelope.open .envelope-flap{transform:rotateX(180deg);z-index:1}.animated-envelope.open .animated-seal{opacity:0}.animated-envelope.open .envelope-sheet{transform:translateY(-100px)}.animated-envelope.recede{transform:translateY(110px) scale(.68);opacity:0}.unfolded-letter{position:relative;width:min(89vw,380px);max-height:min(68dvh,680px);background:#fffaf6;padding:clamp(13px,2.5dvh,22px);box-shadow:0 18px 38px #684b512e;border-radius:8px;display:flex;flex-direction:column;align-items:center;gap:clamp(6px,1.2dvh,13px);opacity:0;transform:translateY(100px) scale(.82);transition:transform .78s cubic-bezier(.22,.75,.24,1),opacity .55s;overflow-y:auto;pointer-events:none}.unfolded-letter.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}.unfolded-letter img{width:100%;max-height:35dvh;object-fit:contain;background:#f0e1d9}.unfolded-letter time{font-size:12px;color:#9e757c}.unfolded-letter h2{font-size:clamp(17px,2.3dvh,22px);font-weight:500;text-align:center;margin:0}.unfolded-letter p{font-size:clamp(13px,1.8dvh,15px);line-height:1.75;min-height:4em;text-align:center;margin:0;color:#785961}.unfolded-letter.closing{opacity:0;transform:translateY(90px) scale(.75)}#memoryLetter .btn{width:100%}#memoryLetter .nav{flex:0 0 auto}@media(max-height:740px){.unfolded-letter img{max-height:29dvh}.memory-letter-view{gap:7px}}/* First chapter's large purple envelope: opening -> sheet rising -> typewritten letter */
-#envelope{gap:clamp(12px,2dvh,22px);justify-content:center}#envelope h2{margin:0;font-size:clamp(18px,2.6dvh,22px)}.first-stage{position:relative;width:100%;height:clamp(210px,47dvh,420px);display:flex;align-items:center;justify-content:center;perspective:900px;isolation:isolate}.first-envelope{position:relative;z-index:4;display:block;flex:0 0 auto;width:min(65vw,246px);height:162px;padding:0;border:0;background:transparent;transform:rotate(-5deg);filter:drop-shadow(0 14px 22px #20112277);transition:transform .42s cubic-bezier(.2,.8,.2,1),opacity .45s;transform-style:preserve-3d}.first-envelope.selected{transform:rotate(0deg) scale(1.13)}.first-back{position:absolute;inset:0;background:#d9aca8;border-radius:3px}.first-front{position:absolute;inset:0;z-index:3;background:linear-gradient(135deg,#f9e6da,#e0b8b2);clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%)}.first-flap{position:absolute;inset:0 0 auto;height:60%;z-index:5;background:#fceddf;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform .48s ease;backface-visibility:hidden}.first-seal{position:absolute;top:41%;left:calc(50% - 21px);z-index:6;border-radius:50%;background:#b6717c;width:42px;height:42px;display:grid;place-items:center;font-size:24px;color:white;transition:opacity .22s}.first-sheet{position:absolute;left:10%;top:8%;width:80%;height:84%;background:#fffbf5;border-radius:3px;box-shadow:0 3px 8px #492a3b22;transition:transform .7s ease;z-index:2}.first-envelope.open .first-flap{transform:rotateX(180deg);z-index:1}.first-envelope.open .first-seal{opacity:0}.first-envelope.open .first-sheet{transform:translateY(-85px)}.first-envelope.recede{transform:translateY(100px) scale(.65);opacity:0;pointer-events:none}.first-letter-paper{position:absolute;z-index:7;width:min(88vw,355px);max-height:100%;min-height:0;overflow-y:auto;padding:clamp(17px,3dvh,28px) 17px;background:#fffaf5;color:#6f5158;box-shadow:0 18px 45px #24152a80;border-radius:5px;opacity:0;pointer-events:none;transform:translateY(95px) scale(.78);transition:opacity .45s ease,transform .68s cubic-bezier(.17,.8,.2,1);display:flex;flex-direction:column;gap:10px;align-items:center}.first-letter-paper.visible{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}.first-letter-paper h3{font-size:clamp(17px,2.5dvh,22px);font-weight:500;margin:0}.first-letter-paper p{white-space:pre-line;font-size:clamp(12px,1.7dvh,15px);line-height:1.9;min-height:8em;margin:0}.first-letter-paper .btn{font-size:13px;padding:11px 18px}.first-letter-paper .btn:disabled{opacity:.45}#firstHint{font-size:12px;min-height:20px}@media(max-height:730px){.first-stage{height:44dvh}.first-letter-paper{padding:13px}.first-letter-paper p{font-size:12px;line-height:1.6}}@media(prefers-reduced-motion:reduce){.first-envelope,.first-flap,.first-sheet,.first-letter-paper{transition-duration:.01ms}}
-/* Chapter 04: immersive five-scene story and chapter-scoped music */
-.four-scene{padding:calc(env(safe-area-inset-top) + 16px) 18px calc(env(safe-area-inset-bottom) + 15px);gap:5px;overflow:hidden}
-.four-night{background:radial-gradient(ellipse at 50% 35%,#55475f,#302940 70%,#211f35);color:#fff8f5}
-.four-cream{background:radial-gradient(ellipse at top,#fffaf6,#f0e2dc);color:#674951}
-.four-top{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:0 0 auto;font-size:10px;letter-spacing:.1em;opacity:.85}
-.four-back,.four-music{border:0;color:inherit;background:transparent;font-size:23px;width:39px;height:39px;flex:0 0 auto}
-.four-music{border:1px solid currentColor;border-radius:50%;font-size:17px;opacity:.85}
-.four-music.playing{background:#be8d9d55;box-shadow:0 0 14px #efbfd455}
-.four-content{min-height:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,1.5dvh,17px);text-align:center}
-.four-eyebrow{font:11px Georgia,serif;letter-spacing:.19em;opacity:.75}
-.four-content h1{font:normal clamp(20px,2.9dvh,28px)/1.6 "Songti TC",Georgia,serif;letter-spacing:.04em;margin:0}
-.four-content>p{font-size:clamp(12px,1.75dvh,15px);line-height:1.85;margin:0;opacity:.83}
-.four-caption{font-size:12px!important;opacity:.72!important;min-height:20px}
-.four-continue{width:min(100%,320px);background:#b37b8a;color:#fffaf9;border:0;border-radius:40px;padding:13px 14px;font-size:13px;flex:0 0 auto}
-.four-continue:disabled{opacity:.38}
-.star-field,.together-field{position:relative;width:min(83vw,340px);height:clamp(145px,26dvh,255px);touch-action:none;flex:0 0 auto}
-.star-field:before,.together-field:before{content:"";position:absolute;inset:9% 2%;border-radius:50%;background:radial-gradient(circle,#ddc0e116,transparent 68%);pointer-events:none}
-.star-object{position:absolute;top:44%;width:54px;height:54px;border:0;background:transparent;color:#f6d7b7;font-size:41px;transform:translate(-50%,-50%);text-shadow:0 0 22px #ffd9c5;touch-action:none;transition:filter .25s}
-#starLeft{left:22%}#starRight{left:78%}
-.star-line{position:absolute;top:44%;left:30%;width:40%;height:1px;background:linear-gradient(90deg,transparent,#f5d3c6,transparent);transform:scaleX(0);transition:transform .5s;pointer-events:none}
-.star-field.connected .star-line{transform:scaleX(1)}
-.star-field.connected .star-object{filter:drop-shadow(0 0 10px #fbd1ba)}
-.four-cards{display:flex;flex-direction:column;gap:clamp(7px,1.3dvh,13px);width:100%;max-width:370px;min-height:0;overflow-y:auto;padding:4px 2px}
-.four-card{width:100%;flex:0 0 auto;padding:clamp(13px,2dvh,19px);text-align:left;background:#fffaf5;border:1px solid #e7d4cc;border-radius:12px;box-shadow:0 8px 18px #946c7020;color:#704e56;transition:background .25s}
-.four-card strong{font-size:15px}.four-card .four-card-body{font-size:13px;line-height:1.8;white-space:pre-line;max-height:0;opacity:0;overflow:hidden;transition:max-height .48s ease,opacity .35s ease}
-.four-card.open .four-card-body{max-height:260px;opacity:1;margin-top:11px}.four-card.open{background:#fffdf9}
-.together-person{position:absolute;top:28%;width:70px;height:120px;transform:translateX(-50%);border:0;background:transparent;color:#f3ced6;touch-action:none}
-.together-person.one{left:19%}.together-person.two{left:81%}
-.together-person:before{content:"";position:absolute;top:6px;left:19px;width:33px;height:33px;background:#ebbbc8;border-radius:50%;box-shadow:0 0 19px #efb9ce44}
-.together-person:after{content:"";position:absolute;bottom:7px;left:10px;width:51px;height:70px;background:linear-gradient(#d9aabb,#a47f9f);border-radius:31px 31px 12px 12px}
-.together-person.two:before{background:#c5b4df}.together-person.two:after{background:linear-gradient(#c8b6dc,#8f86b7)}
-.together-person span{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);opacity:.6}
-.together-field.joined .together-glow{opacity:1}.together-glow{position:absolute;left:29%;right:29%;top:50%;height:70px;border-radius:50%;background:#f9bdd255;filter:blur(30px);opacity:0;transition:opacity .7s}
-.wish-star{border:0;background:transparent;color:#ffe1b9;text-shadow:0 0 20px #f3c6a8;font-size:clamp(60px,10dvh,92px);min-height:90px;transition:transform .45s,filter .45s}
-.wish-star.lit{transform:scale(1.25);filter:drop-shadow(0 0 20px #ffdcc2)}
-.wish-paper{background:#fffaf3;color:#74545d;width:min(88vw,355px);max-height:37dvh;overflow-y:auto;border-radius:4px;padding:15px;box-shadow:0 12px 28px #140e1c66;opacity:0;transform:translateY(23px) scale(.9);transition:opacity .5s,transform .5s}
-.wish-paper.visible{opacity:1;transform:none}.wish-paper p{white-space:pre-line;line-height:2;font-size:clamp(13px,1.9dvh,16px);min-height:6em;margin:0}
-.end-stars{font-size:44px;color:#f0c5d0;letter-spacing:20px;text-shadow:0 0 24px #cda4bf}.end-stars span{color:#f1ddbd}
-@media(max-height:750px){.four-content{gap:7px}.four-card{padding:10px}.four-card .four-card-body{font-size:12px}.star-field,.together-field{height:21dvh}.wish-star{min-height:65px;font-size:60px}}
-.star-field{cursor:pointer}.star-object{pointer-events:none;transition:left 2.8s cubic-bezier(.35,0,.23,1),top 2.8s cubic-bezier(.35,0,.23,1),filter .3s}#starLeft{top:72%;left:17%}#starRight{top:18%;left:83%}.star-field.moving #starLeft{left:43%;top:43%}.star-field.moving #starRight{left:57%;top:43%}.together-person{pointer-events:none;transition:left 1.35s cubic-bezier(.25,.7,.25,1)}.together-field.approaching #personOne{left:39%}.together-field.approaching #personTwo{left:61%}/* Chapter 04: actual two-figure walking cycle with articulated legs */
-.together-person{top:20%;height:150px;width:78px;border:0;background:none;transform:translateX(-50%);will-change:left;transition:left 3.4s cubic-bezier(.34,.02,.2,1)!important}
-.together-person:before,.together-person:after{content:none!important}
-.together-person.one{left:12%}.together-person.two{left:88%}
-.together-field.approaching #personOne{left:39%}.together-field.approaching #personTwo{left:61%}
-.walker{width:100%;height:100%;transform-origin:50% 85%}.walker-svg{height:100%;width:100%;overflow:visible;filter:drop-shadow(0 5px 8px #17122155)}
-.walker-leg,.walker-arm{transform-box:fill-box;transform-origin:50% 0%;transform:rotate(0)}
-.together-field.approaching:not(.joined) .walker{animation:walker-bob .64s ease-in-out infinite alternate}
-.together-field.approaching:not(.joined) .leg-left{animation:walk-forward .64s ease-in-out infinite alternate}
-.together-field.approaching:not(.joined) .leg-right{animation:walk-back .64s ease-in-out infinite alternate}
-.together-field.approaching:not(.joined) .walker-arm{animation:walk-back .64s ease-in-out infinite alternate}
-.together-field.approaching:not(.joined) .walker-arm-right{animation:walk-forward .64s ease-in-out infinite alternate}
-.together-field.approaching:not(.joined) .together-person.two .walker,.together-field.approaching:not(.joined) .together-person.two .walker-leg{animation-delay:-.23s}
-@keyframes walker-bob{from{transform:translateY(0) rotate(-1deg)}to{transform:translateY(-5px) rotate(1deg)}}
-@keyframes walk-forward{from{transform:rotate(-19deg)}to{transform:rotate(19deg)}}
-@keyframes walk-back{from{transform:rotate(19deg)}to{transform:rotate(-19deg)}}
-.together-field.joined .walker{animation:none;transform:translateY(0)}
-.together-field.joined .walker-leg,.together-field.joined .walker-arm{animation:none;transform:rotate(0)}
-@media(prefers-reduced-motion:reduce){.together-person{transition-duration:.01ms!important}.together-field.approaching .walker,.together-field.approaching .walker-leg,.together-field.approaching .walker-arm{animation:none!important}}
-/* Chapter 05: full viewport handwritten travel diary */
-.five-scene{background:radial-gradient(ellipse at 75% 7%,#fff9f0,#f5e8db 65%,#ead9d3);color:#79565d;gap:10px;justify-content:space-between;text-align:center}
-.five-sky{background:linear-gradient(180deg,#e6e4ee,#ffe9dd 57%,#f6e6d4)}
-.five-nav{display:flex;align-items:center;justify-content:space-between;font-size:11px;letter-spacing:.1em;flex-shrink:0}
-.five-nav button{border:0;background:transparent;font-size:26px;color:inherit;width:42px;text-align:left}
-.five-main{min-height:0;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(7px,1.5dvh,16px)}
-.five-main>small{font:11px Georgia,serif;letter-spacing:.2em;color:#ae7f86}
-.five-main h1{font:normal clamp(22px,3.1dvh,29px)/1.45 Georgia,"Songti TC",serif;margin:0}
-.five-main>p{margin:0;font-size:clamp(12px,1.65dvh,15px);line-height:1.9}
-.five-story{font-size:clamp(12px,1.7dvh,15px)!important;line-height:1.85!important;max-width:360px;white-space:pre-line}
-.five-next{flex-shrink:0;width:100%;border:0;border-radius:40px;padding:14px;background:#ad7c85;color:white;font-size:14px}
-.five-next:disabled{opacity:.38}
-.five-book{position:relative;border:0;width:min(74vw,290px);height:min(32dvh,230px);background:transparent;perspective:700px;filter:drop-shadow(0 13px 17px #6b4d5535);margin:10px 0}
-.five-book-cover,.five-book-inside{position:absolute;inset:0;border-radius:8px 16px 16px 8px;display:flex;align-items:center;justify-content:center;gap:15px}
-.five-book-cover{z-index:2;background:linear-gradient(120deg,#be8d8e,#e5bbb0);color:#fffdf8;font:21px Georgia,serif;transform-origin:left;transition:transform .85s;backface-visibility:hidden;flex-direction:column;box-shadow:inset 9px 0 13px #71474e44}
-.five-book-cover i{font-style:normal;font-size:28px}.five-book-inside{background:#fffdf8;color:#ad8b83;border:2px solid #e8d4c6;padding:12px}.five-book-inside b{font-size:12px;font-weight:400;flex:1}.five-book.open .five-book-cover{transform:rotateY(-155deg)}
-.five-post-stack{display:flex;flex-direction:column;width:min(88vw,370px);gap:clamp(7px,1.2dvh,13px);min-height:0;overflow-y:auto;padding:3px}
-.five-postcard{border:1px solid #e5c9be;background:#fffdf8;border-radius:9px;box-shadow:0 6px 15px #76565a1c;color:#795b62;padding:clamp(10px,1.7dvh,15px);min-height:77px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;transition:transform .45s,background .3s}
-.five-postcard.open{background:#fff8ef;transform:translateY(-2px)}.five-postcard strong{font-size:14px}.five-postcard small{color:#a48081;font-size:11px}.five-postcard p{white-space:pre-line;margin:6px 0 0;line-height:1.7;font-size:12px}
-.five-flight{position:relative;width:100%;max-width:390px;height:min(35dvh,280px);overflow:hidden;border-radius:50%;background:radial-gradient(circle at center,#fff9f04d,transparent 65%)}
-.five-paper-plane{position:absolute;left:15%;top:68%;font-size:58px;transform:rotate(-31deg);border:0;background:transparent;color:#c18d91;text-shadow:0 6px 10px #ad8b9a33;z-index:2;transition:left 1.65s cubic-bezier(.3,.3,.2,1),top 1.65s cubic-bezier(.3,.3,.2,1),opacity .4s;cursor:pointer}
-.five-flight.flying .five-paper-plane{left:83%;top:6%;opacity:0}
-.five-flight-trail{position:absolute;left:25%;top:50%;width:60%;height:2px;background:linear-gradient(90deg,transparent,#d9aca4,transparent);transform:rotate(-23deg) scaleX(0);transition:transform 1.5s}
-.five-flight.flying .five-flight-trail{transform:rotate(-23deg) scaleX(1)}
-.five-horizon{position:relative;width:min(88vw,360px);height:min(30dvh,250px);border-radius:180px 180px 12px 12px;background:linear-gradient(180deg,#e8c7c4,#f8dec7 68%,#cfb8a1 69%,#b8a3a0 100%);overflow:hidden;box-shadow:0 10px 22px #7852581b}
-.five-sun{position:absolute;top:14%;left:calc(50% - 34px);width:68px;height:68px;border-radius:50%;background:#fff1cf;box-shadow:0 0 50px #fff2cd}
-.five-figures{position:absolute;left:0;right:0;bottom:5%;display:flex;justify-content:center;gap:8px;filter:drop-shadow(0 5px 5px #63475944)}
-.five-figure{font-size:105px;color:#716878;line-height:1;transform:scaleX(.7)}.five-figure:nth-child(2){color:#a37d8c;transform:scaleX(.66)}
-.five-final-book{width:min(83vw,340px);height:min(38dvh,300px);padding:11px;background:#c08f8c;border-radius:8px 15px 15px 8px;box-shadow:10px 13px 23px #68505136;transition:transform .85s}
-.five-final-page{height:100%;padding:20px 10px;background:#fffdf8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;box-shadow:inset 0 0 0 1px #e9d7ce;transition:transform .85s,opacity .7s;transform-origin:left}
-.five-final-page p{font:clamp(15px,2.1dvh,19px)/2 "Songti TC",serif;color:#7b5b62}
-.five-final-page small{font-size:12px;color:#b28d91}.five-page-flower{font-size:25px;color:#be8c95}
-.five-final-book.closed .five-final-page{transform:rotateY(-85deg);opacity:0}.five-final-book.closed{transform:scale(.92) rotate(-3deg)}
-@media(max-height:750px){.five-main{gap:7px}.five-book{height:28dvh}.five-postcard{min-height:62px}.five-postcard p{font-size:11px}.five-horizon{height:25dvh}}
-
-/* Sixth chapter: a real two-leaf opening door and portrait-video finale */
-.six-view{height:100dvh;min-height:0;overflow:hidden;padding:calc(env(safe-area-inset-top) + 14px) 19px calc(env(safe-area-inset-bottom) + 18px);color:#fff4ef;background:radial-gradient(ellipse at 50% 42%,#5d4654,#261f30 75%,#17131d);gap:0}
-.six-head,.six-video-head{display:flex;align-items:center;justify-content:space-between;min-height:34px;font-size:10px;letter-spacing:.14em;color:#e3c3cf;flex-shrink:0}
-.six-head button,.six-video-head button{background:transparent;border:0;color:inherit;font-size:27px;width:40px;text-align:left}
-.six-door-copy{flex:0 0 auto;text-align:center;margin-top:clamp(5px,2.5dvh,24px)}
-.six-eyebrow{font-size:10px;letter-spacing:.22em;color:#d7b4ba}
-.six-door-copy h1{font:normal clamp(24px,3.4dvh,33px)/1.5 Georgia,"Songti TC",serif;letter-spacing:.06em;margin:11px 0 5px}
-.six-door-copy p{font-size:13px;color:#ddc8cf;margin:0}
-.six-door-trigger{position:relative;display:flex;justify-content:center;align-items:center;flex:1;min-height:0;width:100%;border:0;background:none;perspective:800px;cursor:pointer;touch-action:manipulation}
-.six-portal{position:relative;width:min(67vw,32dvh,264px);height:min(100vw,55dvh,440px);background:linear-gradient(180deg,#fce7c0,#e7aeb2 75%,#b77686);border:9px solid #9f7784;border-bottom:5px solid #8b6876;border-radius:48% 48% 6px 6px / 21% 21% 6px 6px;box-shadow:0 0 0 4px #c89b9a,0 10px 50px #0f071955,inset 0 0 50px #fff2d7;overflow:hidden;transform:translateZ(0);transition:transform 1.1s 1.15s ease}
-.six-portal-light{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,#fffbee,#f9dbb2 52%,#b87d92);opacity:.7;transition:opacity .7s}
-.six-door-left,.six-door-right{position:absolute;top:0;bottom:0;width:50.5%;background:linear-gradient(100deg,#c59491,#926c7c 65%,#785967);border:2px solid #e2b2a9;box-shadow:inset 0 0 16px #38252e44;transform-style:preserve-3d;backface-visibility:hidden;transition:transform 1.3s cubic-bezier(.32,.02,.21,1);z-index:3}
-.six-door-left{left:0;transform-origin:left center;border-radius:58% 0 0 0 / 18% 0 0 0}
-.six-door-right{right:0;transform-origin:right center;border-radius:0 58% 0 0 / 0 18% 0 0}
-.six-panel-detail{position:absolute;inset:15% 12% 9%;border:2px solid #e9c4b766;border-radius:50% 50% 4px 4px / 15% 15% 4px 4px}
-.six-knob{position:absolute;top:57%;width:10px;height:10px;border-radius:50%;background:#f5dfad;box-shadow:0 0 12px #fee5ba}
-.six-door-left .six-knob{right:10px}.six-door-right .six-knob{left:10px}
-.six-door-halo{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse,#fff4c666,transparent 60%);opacity:0;transition:opacity 1.4s}
-.six-door-view.opening .six-door-left{transform:rotateY(-112deg)}.six-door-view.opening .six-door-right{transform:rotateY(112deg)}
-.six-door-view.opening .six-portal-light{opacity:1}.six-door-view.opening .six-door-halo{opacity:1}.six-door-view.opening .six-portal{transform:scale(1.2)}
-.six-flower{position:absolute;font-size:30px;color:#d6a2ac66;pointer-events:none}.six-flower-a{left:4%;top:24%}.six-flower-b{right:5%;bottom:23%}
-.six-touch-hint{flex-shrink:0;text-align:center;letter-spacing:.08em;font-size:12px;color:#e4c5ce;padding:0 0 10px;animation:pulsehint 2.5s infinite}
-.six-video-view{background:#0e0d11;justify-content:space-between}
-.six-video-head{color:#ddd2d6}.six-video-head button{text-align:right}
-.six-video-frame{min-height:0;flex:1;display:flex;align-items:center;justify-content:center;position:relative;margin:8px 0;overflow:hidden}
-#sixFilm{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;background:#000}
-.six-video-caption{text-align:center;font-size:11px;color:#c8b5bf;flex-shrink:0}
-.six-video-fallback{position:absolute;inset:0;background:#211a27;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;padding:22px;text-align:center;color:#f5e4e9}
-.six-video-fallback[hidden]{display:none!important}.six-video-fallback>span{font-size:45px;color:#e4b4c4}.six-video-fallback h2{font-size:18px;font-weight:500;line-height:1.6}.six-video-fallback p{font-size:13px;line-height:2}.six-video-fallback button{border:1px solid #d9adb9;background:#b17d8d;color:white;border-radius:30px;padding:11px 17px}
-.six-end-view{background:radial-gradient(ellipse at 50% 60%,#4e3741,#1c1722 78%);justify-content:space-between}
-.six-end-content{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:clamp(10px,2.3dvh,22px);text-align:center}
-.six-end-heart{font-size:46px;color:#f6bdc8}.six-end-content p{font:clamp(14px,1.95dvh,18px)/2 "Songti TC",Georgia,serif;margin:0;color:#f5e4e4}
-.six-end-content h1{font:normal clamp(24px,3.7dvh,34px) "Songti TC",serif;color:#f3bbcb;margin:10px 0}
-.six-end-buttons{display:flex;flex-direction:column;gap:10px;flex-shrink:0}.six-end-buttons button{border-radius:40px;padding:13px;background:#d4a2b1;border:1px solid #e2bec8;color:#241721}.six-end-buttons button+button{background:transparent;color:#f9e9ef}
-@media(max-height:740px){.six-door-copy{margin-top:2px}.six-portal{height:min(95vw,48dvh,380px)}.six-end-content{gap:10px}}
-@media(prefers-reduced-motion:reduce){.six-door-left,.six-door-right,.six-portal,.six-door-halo{transition-duration:.01ms!important}}
-/* Cinematic continuous scene transitions, rather than hard slide changes */
-main{position:relative;isolation:isolate}
-.view{position:absolute;inset:0;width:100%;max-width:100%;margin:0;animation:none!important;contain:layout paint}
-.view.on{display:flex}
-.view.scene-exit{display:flex;z-index:1;pointer-events:none;will-change:opacity,transform,filter}
-.view.scene-enter{z-index:2;will-change:opacity,transform,filter}
-.view.scene-enter.scene-intra{animation:sceneFlowIn .72s cubic-bezier(.2,.65,.18,1) both!important}
-.view.scene-exit.scene-intra{animation:sceneFlowOut .72s ease-in-out both!important}
-.view.scene-enter.scene-chapter{animation:chapterDissolveIn 1.05s cubic-bezier(.17,.68,.15,1) both!important}
-.view.scene-exit.scene-chapter{animation:chapterDissolveOut 1.05s ease-in-out both!important}
-@keyframes sceneFlowIn{0%{opacity:0;transform:translate3d(0,16px,0) scale(1.012);filter:blur(4px)}50%{opacity:.72;filter:blur(1px)}100%{opacity:1;transform:none;filter:blur(0)}}
-@keyframes sceneFlowOut{0%{opacity:1;transform:none;filter:blur(0)}70%{opacity:.27;filter:blur(3px)}100%{opacity:0;transform:translate3d(0,-12px,0) scale(.99);filter:blur(7px)}}
-@keyframes chapterDissolveIn{0%{opacity:0;transform:scale(1.045);filter:blur(14px) brightness(1.12)}55%{opacity:.6;filter:blur(4px)}100%{opacity:1;transform:none;filter:blur(0) brightness(1)}}
-@keyframes chapterDissolveOut{0%{opacity:1;transform:none;filter:blur(0)}50%{opacity:.72;filter:blur(3px)}100%{opacity:0;transform:scale(.985);filter:blur(15px)}}
-@media(prefers-reduced-motion:reduce){.view.scene-enter,.view.scene-exit{animation:none!important}.view.scene-exit{display:none!important}}
-/* Explicit whole-body movement: keyframes start from the outer edges, not the center. */
-.together-person.one{left:12%!important}.together-person.two{left:88%!important}
-.together-field.approaching #personOne{animation:walk-person-from-left 3.5s cubic-bezier(.3,.05,.2,1) both!important}
-.together-field.approaching #personTwo{animation:walk-person-from-right 3.5s cubic-bezier(.3,.05,.2,1) both!important}
-.together-field.joined #personOne{left:39%!important}
-.together-field.joined #personTwo{left:61%!important}
-@keyframes walk-person-from-left{from{left:12%}to{left:39%}}
-@keyframes walk-person-from-right{from{left:88%}to{left:61%}}
-@media(prefers-reduced-motion:reduce){.together-field.approaching #personOne,.together-field.approaching #personTwo{animation-duration:.01ms!important}}
-
-/* VISUAL ART DIRECTION v2 — unified, quiet cinematic picture-book language */
-:root{--ink:#583d4e;--rose:#b57f8f;--wine:#5c354b;--paper:#fbf4ec;--gold:#efd2a7}
-body{background:#18131d;letter-spacing:.012em;-webkit-font-smoothing:antialiased}
-main{overflow:hidden}
-.view:not(.cover){-webkit-font-smoothing:antialiased}
-.view h1,.view h2,.title{font-family:"Iowan Old Style","Songti TC","Noto Serif TC",Georgia,serif!important;font-weight:400!important;letter-spacing:.045em}
-.view p{letter-spacing:.03em}
-.view button:focus-visible{outline:2px solid #f0c6aa;outline-offset:4px}
-.btn,.four-continue,.five-next{box-shadow:0 8px 25px #6b3b4b1e;transition:transform .3s ease,box-shadow .3s ease}
-.btn:active,.four-continue:active,.five-next:active{transform:scale(.975)}
-/* Chapter 04: genuinely theatrical night sky, horizon and ground depth */
-#fourTogether{background:radial-gradient(ellipse at 48% 84%,#b67c8b38,transparent 45%),radial-gradient(ellipse at 55% 6%,#665174,#33293f 48%,#161c32 100%)!important}
-#fourTogether .four-content{position:relative;isolation:isolate}
-#fourTogether .together-field{position:relative;overflow:hidden;isolation:isolate;box-shadow:inset 0 -45px 50px -50px #ecc7b388}
-#fourTogether .together-field:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 18% 18%,#fff5e5 0 1px,transparent 2px),radial-gradient(circle at 79% 33%,#ffeedb 0 1px,transparent 2px),radial-gradient(circle at 48% 12%,#fff3d4 0 1.5px,transparent 2.5px),radial-gradient(circle at 73% 12%,#fff 0 1px,transparent 2px),radial-gradient(ellipse at 50% 100%,#c3a7a03d,transparent 45%);background-size:100% 100%}
-#fourTogether .together-field:after{content:"";position:absolute;left:-10%;right:-10%;bottom:4%;height:19%;border-radius:50% 50% 0 0;background:radial-gradient(ellipse at 50% 0%,#bfa4b45c,transparent 72%);filter:blur(9px);z-index:0;pointer-events:none}
-#fourTogether .together-person{z-index:2;filter:drop-shadow(0 11px 12px #100c2077)}
-#fourTogether .walker-svg{filter:drop-shadow(0 5px 10px #0e102477)}
-#fourTogether .together-glow{filter:blur(15px);transition:opacity 1.4s 2.4s,transform 2s}
-#fourTogether .together-field.joined .together-glow{opacity:1;transform:scale(1.4)}
-/* Chapter 06: the final threshold as an illustrated architectural set */
-#sixDoor{position:relative;background:radial-gradient(ellipse at 50% 60%,#72536655,transparent 60%),linear-gradient(180deg,#171725 0%,#2a2234 44%,#483444 87%,#382a37 100%)!important}
-#sixDoor:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 17% 24%,#ffe8cfaa 0 1px,transparent 2px),radial-gradient(circle at 80% 19%,#ffe8cfb8 0 1px,transparent 2px),radial-gradient(circle at 12% 67%,#ffdfca99 0 1px,transparent 2px),radial-gradient(circle at 89% 71%,#ffe8d999 0 1px,transparent 2px),radial-gradient(circle at 60% 8%,#fff 0 1px,transparent 2px);opacity:.67}
-#sixDoor:after{content:"";position:absolute;bottom:-7%;left:-15%;width:130%;height:25%;background:radial-gradient(ellipse at center,#deb4a256,transparent 70%);filter:blur(22px);pointer-events:none}
-.six-door-copy{position:relative;z-index:2}
-.six-door-copy h1{font-size:clamp(24px,3.5dvh,34px);text-shadow:0 2px 28px #130b21aa}
-.six-door-trigger{perspective:1300px;z-index:1}
-.six-portal{width:min(71vw,35dvh,300px);height:min(112vw,57dvh,480px);overflow:visible;border:11px solid #af8493;border-bottom:8px solid #947181;border-radius:49% 49% 5px 5px/24% 24% 5px 5px;box-shadow:0 0 0 3px #e5bdad,0 0 0 12px #664b60,0 0 0 15px #b68b99,0 16px 65px #130c1bd9,0 0 85px #e6a4aa24,inset 0 0 70px #ffe9c9!important}
-.six-portal:before{content:"";position:absolute;inset:-25px -25px -8px;border-radius:50% 50% 0 0/24% 24% 0 0;border:1px solid #e4bea85c;pointer-events:none}
-.six-portal:after{content:"";position:absolute;left:-23%;right:-23%;bottom:-26px;height:25px;background:linear-gradient(180deg,#a68290,#6b4c61 65%,#392739);clip-path:polygon(13% 0,87% 0,100% 100%,0 100%);box-shadow:0 12px 20px #0e0916;pointer-events:none}
-.six-door-left,.six-door-right{background:repeating-linear-gradient(90deg,transparent 0 8px,#ead0b00c 9px 11px,transparent 12px 33px),linear-gradient(100deg,#a7727d,#ae7c82 29%,#865d6b 72%,#6e4b60)!important;border:2px solid #dcb4a8!important;box-shadow:inset 0 0 20px #2915214a,inset 0 0 0 7px #f6d6c00b,0 5px 15px #20142055!important}
-.six-panel-detail{inset:15% 13% 8%;border:2px solid #f1d9b56e;border-radius:46% 46% 4px 4px / 18% 18% 4px 4px;box-shadow:inset 0 0 0 6px #eac4ae14,0 0 0 7px #351a2812}
-.six-knob{width:13px;height:13px;background:radial-gradient(circle at 32% 25%,#fff6d5,#d5a66a 64%,#8d5b47);box-shadow:0 0 12px #efbf87aa,0 2px 4px #321925}
-.six-portal-light{background:radial-gradient(ellipse at 50% 55%,#fffefa,#ffedce 48%,#d4a2ac)!important;box-shadow:inset 0 0 50px #fff1c8}
-.six-door-view.opening .six-portal{box-shadow:0 0 0 3px #e5bdad,0 0 0 12px #664b60,0 0 0 15px #b68b99,0 0 110px #ffe2b6a3,inset 0 0 80px #fff!important}
-.six-door-view.opening .six-door-halo{opacity:1;filter:blur(10px)}
-.six-flower{font-size:clamp(34px,7vw,54px);font-family:Georgia,serif;color:#e0b2bb85;text-shadow:0 2px 20px #eec6ae55}
-.six-flower-a{left:2%;top:25%;transform:rotate(-25deg)}.six-flower-b{right:0;bottom:24%;transform:rotate(26deg)}
-.six-touch-hint{position:relative;z-index:2;color:#f0d9dd}
-/* Finale: let the message breathe instead of looking like a standard page */
-#sixEnding{background:radial-gradient(ellipse at center,#765565 0%,#443140 41%,#1b1726 100%)!important}
-#sixEnding .six-end-content{position:relative}
-#sixEnding .six-end-content:before{content:"";position:absolute;width:min(75vw,340px);height:min(75vw,340px);top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#e3b0ad22,transparent 67%);pointer-events:none}
-#sixEnding .six-end-content>*{z-index:1;position:relative}
-#sixEnding .six-end-heart{font:72px/1 Georgia,serif;color:#f3d0c9;filter:drop-shadow(0 0 15px #ffe3ca6e)}
-#sixEnding .six-end-content p{font-size:clamp(14px,1.85dvh,18px);line-height:2.05}
-#sixEnding .six-end-content h1{font-size:clamp(27px,4dvh,38px);color:#ffdacb}
-@media(max-height:700px){.six-portal{height:min(103vw,46dvh)}}
-
-/* ART PASS 02: Layered illustrated environments, depth, and deliberate pacing */
-#fourTogether .together-field{height:clamp(210px,34dvh,325px)!important;width:min(92vw,385px);overflow:hidden;border-radius:48% 48% 12px 12px / 15% 15% 12px 12px;background:linear-gradient(180deg,#282842 0%,#48405e 42%,#896b82 80%,#a37b8a 100%);box-shadow:inset 0 0 65px #1e1a2d,0 17px 45px #2015253d}
-#fourTogether .cinema-sky{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-#fourTogether .cinema-moon{position:absolute;width:46px;height:46px;right:20%;top:17%;border-radius:50%;background:#ffe9d6;box-shadow:0 0 0 14px #ffe9dd0d,0 0 0 40px #ffe0d20b,0 0 42px 17px #ffd9cb54}
-#fourTogether .cinema-star{position:absolute;width:3px;height:3px;background:#fff2db;border-radius:50%;box-shadow:0 0 12px #fff6e3;animation:cinemaTwinkle 3.5s ease-in-out infinite alternate}
-#fourTogether .cinema-star.s1{left:15%;top:14%}.cinema-star.s2{left:42%;top:28%;animation-delay:-1.7s}.cinema-star.s3{left:81%;top:35%;animation-delay:-2.2s}.cinema-star.s4{left:63%;top:12%;animation-delay:-.9s}
-#fourTogether .cinema-hill{position:absolute;bottom:0;left:-20%;width:140%;border-radius:50% 50% 0 0}
-#fourTogether .hill-back{height:32%;bottom:2%;background:#4b4358;transform:rotate(-5deg);box-shadow:0 -10px 30px #e9bdc016}
-#fourTogether .hill-front{height:22%;bottom:-7%;background:linear-gradient(180deg,#544153,#352b43);transform:rotate(4deg)}
-#fourTogether .cinema-ground{position:absolute;bottom:7%;height:2px;left:15%;right:15%;background:linear-gradient(90deg,transparent,#ddb5bd6b,transparent);filter:blur(3px)}
-#fourTogether .together-person{top:auto!important;bottom:13%!important;height:min(46%,150px)!important;z-index:5}
-#fourTogether .together-glow{z-index:3;top:45%;background:radial-gradient(ellipse,#ffd5bd8c,transparent 70%);transition:opacity 1.2s,transform 1.4s;opacity:0}
-#fourTogether .together-field.joined .together-glow{opacity:1;transform:scale(1.4)}
-@keyframes cinemaTwinkle{0%{opacity:.23;transform:scale(.65)}100%{opacity:1;transform:scale(1.25)}}
-#sixDoor .six-scene-particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-#sixDoor .six-scene-particles i{position:absolute;width:4px;height:4px;border-radius:50%;background:#f9dfbd;box-shadow:0 0 15px #ffddbc;animation:sixDrift 5s ease-in-out infinite alternate}
-#sixDoor .six-scene-particles i:nth-child(1){left:16%;top:20%;animation-delay:-1s}#sixDoor .six-scene-particles i:nth-child(2){left:78%;top:19%;animation-delay:-3s}#sixDoor .six-scene-particles i:nth-child(3){left:11%;top:59%;animation-delay:-2s}#sixDoor .six-scene-particles i:nth-child(4){left:87%;top:66%;animation-delay:-4s}#sixDoor .six-scene-particles i:nth-child(5){left:29%;top:82%}#sixDoor .six-scene-particles i:nth-child(6){left:72%;top:85%;animation-delay:-2.7s}#sixDoor .six-scene-particles i:nth-child(7){left:56%;top:12%;animation-delay:-.4s}
-@keyframes sixDrift{0%{transform:translateY(8px) scale(.7);opacity:.2}100%{transform:translateY(-13px) scale(1.3);opacity:.8}}
-#sixDoor .six-vines{position:absolute;inset:0;pointer-events:none;z-index:2}
-#sixDoor .six-vines span{position:absolute;font:clamp(90px,24vw,140px)/1 Georgia,serif;color:#bc809994;text-shadow:0 0 40px #ecb8bf45;top:37%;opacity:.85}
-#sixDoor .six-vines .vine-left{left:-9%;transform:rotate(-42deg)}
-#sixDoor .six-vines .vine-right{right:-9%;transform:scaleX(-1) rotate(-42deg)}
-#sixDoor .six-door-trigger{isolation:isolate}
-#sixDoor .six-portal{z-index:3;transition:transform 1.3s cubic-bezier(.28,.05,.16,1),filter 1.2s}
-#sixDoor.opening .six-portal{transform:scale(1.22);filter:brightness(1.15)}
-#sixDoor.opening .six-vines{opacity:0;transition:opacity 1.3s}
-#sixDoor .six-touch-hint{font-size:12px;letter-spacing:.12em}
-@media(prefers-reduced-motion:reduce){#sixDoor .six-scene-particles i,#fourTogether .cinema-star{animation:none}}
-
-/* Artwork integration: real committed vector artwork, not generated UI screenshot. */
-#fourTogether .together-field{background:#21233c url("assets/chapter-04-scene.svg") center center/cover no-repeat!important;border-radius:24px!important}
-#fourTogether .cinema-sky{display:none!important}
-#fourTogether .together-field:before{display:none!important}
-#fourTogether .together-person{filter:drop-shadow(0 9px 13px #120d1a9c)!important}
-#sixDoor{background:#201b2b url("assets/chapter-06-scene.svg") center center/cover no-repeat!important}
-#sixDoor:before,#sixDoor:after{display:none!important}
-#sixDoor .six-vines{display:none!important}
-#sixDoor .six-door-copy{text-shadow:0 2px 18px #09040b99}
-#sixDoor .six-portal{margin-top:6px;box-shadow:0 0 0 3px #cfa7a3,0 0 0 10px #543b49,0 0 0 14px #c8a098,0 11px 30px #0b081277!important}
-
-/* Art direction 03 — continuous full-bleed scenes, not a tiny boxed diorama */
-#fourTogether{
- background:#191b2d url("assets/chapter-04-scene.svg") center/cover no-repeat!important;
- position:relative;isolation:isolate
-}
-#fourTogether:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#171629cc 0%,#17162977 31%,transparent 52%,#130d1a63 100%);pointer-events:none}
-#fourTogether .four-top,#fourTogether .four-content{position:relative;z-index:2}
-#fourTogether .four-content{height:100%;min-height:0;justify-content:space-between;display:flex;flex-direction:column}
-#fourTogether .four-content h1{text-shadow:0 2px 12px #100b18c9}
-#fourTogether .four-content>p{text-shadow:0 2px 9px #100b18bd}
-#fourTogether .together-field{
- width:100%!important;flex:1 1 auto!important;max-height:44dvh;min-height:200px!important;
- background:transparent!important;box-shadow:none!important;border-radius:0!important;
- overflow:visible!important;margin:0 auto!important
-}
-#fourTogether .together-field:after{display:none!important}
-#fourTogether .together-person{bottom:5%!important;top:auto!important}
-#fourTogether .together-field .together-glow{top:50%!important}
-#fourTogether .four-continue{position:relative;z-index:3;backdrop-filter:blur(10px)}
-#sixDoor .six-door-copy{margin-top:min(5dvh,36px)}
-#sixDoor .six-door-copy h1{font-size:clamp(27px,3.7dvh,36px)!important}
-#sixDoor .six-portal{box-shadow:0 0 0 3px #d5ada9,0 0 0 10px #694e58,0 0 0 17px #ac7c83,0 0 0 22px #593f50,0 13px 52px #0e081cbd!important}
-#sixDoor .six-door-left,#sixDoor .six-door-right{background:repeating-linear-gradient(90deg,#51303c16 0 1px,transparent 2px 12px),linear-gradient(100deg,#b68781,#a17074 28%,#7d5664 72%,#624653)!important}
-#sixDoor .six-portal-light{background:radial-gradient(ellipse at 50% 48%,#fffefa,#ffe8b9 40%,#d89f9e 72%,#5a4157)!important}
-#sixDoor .six-portal .six-panel-detail{border:3px double #eed1b875;box-shadow:inset 0 0 0 12px #30192912}
-@media (max-height:730px){#fourTogether .together-field{min-height:150px!important;max-height:40dvh}#sixDoor .six-door-copy{margin-top:0}}
-
-/* FINAL INTEGRATION PASS — consistent art direction across all 6 chapters */
-:root{--paper:#f9eee8;--ink:#503c4c;--rose:#bd869a;--rose-light:#e6bcc4;--shadow:0 15px 55px #26122226}
-html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none}
-main{height:100dvh;overflow:hidden;max-width:430px;margin:0 auto;box-shadow:0 0 50px #0003;background:#251e2d}
-.view{height:100dvh;min-height:100dvh;max-height:100dvh;overflow:hidden;backface-visibility:hidden}
-.view h1,.view h2,.title{font-weight:400;text-wrap:balance}
-.view button:not(:disabled){-webkit-tap-highlight-color:transparent}
-.view .nav,.view .four-top,.view .five-nav,.view .six-head{position:relative;z-index:8}
-.intro,.four-night,.six-end-view{background-image:radial-gradient(ellipse at 70% 16%,#e1b2a61c,transparent 43%),radial-gradient(ellipse at 18% 75%,#f3a6bf1a,transparent 45%),linear-gradient(165deg,#211a32,#513f56 52%,#282134)!important}
-#fourTogether{background:#171b33 url("assets/chapter-04-scene.svg") center/cover no-repeat!important}
-#sixDoor{background:#1e182a url("assets/chapter-06-scene.svg") center/cover no-repeat!important}
-#sixEnding{background:radial-gradient(ellipse at 50% 46%,#74535f 0%,#34273a 70%,#171522 100%)!important}
-.page,.paper,.five-scene{background-image:radial-gradient(ellipse at 12% 4%,#fffdfa,transparent 49%),linear-gradient(158deg,#fdf7f0,#f2e4df 70%,#edd7d6)!important}
-.letter,.datecard,.photo,.five-postcard,.five-final-page{box-shadow:0 15px 50px #5c344229,0 2px 8px #5c344218!important;border:1px solid #eadbd3}
-.sealed-letter,.memory,.four-card{box-shadow:0 9px 27px #5433421c!important;border-color:#e3c7c3!important}
-#fourTogether .together-field{height:clamp(215px,34dvh,325px)!important;max-height:44dvh!important}
-#fourTogether .together-person{height:150px!important;bottom:6%!important}
-#fourTogether .together-person.one,#fourTogether .together-person.two{will-change:left}
-#fourTogether .together-field.approaching #personOne{animation:walk-person-from-left 3.5s cubic-bezier(.34,.02,.17,1) both!important}
-#fourTogether .together-field.approaching #personTwo{animation:walk-person-from-right 3.5s cubic-bezier(.34,.02,.17,1) both!important}
-#fourTogether .together-field.joined #personOne{left:39%!important}
-#fourTogether .together-field.joined #personTwo{left:61%!important}
-#fourTogether .together-glow{transition:opacity 1.1s ease,transform 1.2s ease!important}
-#fourTogether .together-field.approaching .together-glow{opacity:0!important}
-#fourTogether .together-field.joined .together-glow{opacity:1!important}
-#sixDoor .six-door-trigger{transform-style:preserve-3d}
-#sixDoor .six-portal{overflow:hidden!important;isolation:isolate;transform-style:preserve-3d}
-#sixDoor .six-door-left{transform-origin:left center}
-#sixDoor .six-door-right{transform-origin:right center}
-#sixDoor.opening .six-door-left{transform:perspective(740px) rotateY(-118deg)!important}
-#sixDoor.opening .six-door-right{transform:perspective(740px) rotateY(118deg)!important}
-#sixDoor.opening .six-portal-light{opacity:1!important}
-#sixDoor.opening .six-portal{transform:scale(1.27)!important}
-#sixDoor.opening .six-door-copy,#sixDoor.opening .six-touch-hint{animation:doorWordsAway .9s ease both}
-@keyframes doorWordsAway{to{opacity:0;filter:blur(8px);transform:translateY(-12px)}}
-#sixVideo{background:#07070b!important}
-#sixVideo .six-video-frame{margin:3px -19px!important}
-#sixFilm{max-height:100%;max-width:100%;width:100%;height:100%;object-fit:contain}
-#sixVideo .six-video-caption{font-family:"Songti TC",Georgia,serif;letter-spacing:.12em}
-#sixEnding .six-end-content p{max-width:345px}
-@media(prefers-reduced-motion:reduce){#sixDoor.opening .six-door-copy,#sixDoor.opening .six-touch-hint{animation:none}}
-</style></head><body><main><section class="view on cover" id="cover" role="button" tabindex="0" aria-label="輕觸任意位置開啟我們的故事"></section><section class="view intro" id="envelope"><small>A LETTER FOR YOU</small><h2>有一些話，<br>想換一種方式告訴妳。</h2><div class="first-stage" id="firstStage"><button class="first-envelope" id="firstEnvelope" type="button" aria-label="打開信封"><span class="first-back"></span><span class="first-sheet"></span><span class="first-front"></span><span class="first-flap"></span><span class="first-seal">♥</span></button><article class="first-letter-paper" id="firstLetterPaper" aria-label="給妳的一封信"><small>OUR STORY</small><h3>給妳的一封信</h3><p id="firstTypedText"></p><button class="btn" id="firstContinue" type="button" disabled>開始我們的故事 →</button></article></div><small id="firstHint">輕觸信封，打開這封信</small></section><section class="view paper" id="letter"><div class="letter"><small>OUR STORY</small><h2>給妳的一封信</h2><p>有些日子，當下沒有覺得特別。<br>回頭看才發現，<br>原來每個平凡的片刻，<br>都慢慢變成了我們的故事。<br><br>這份小小的禮物，<br>想邀請妳一起打開。</p><button class="btn" data-go="bridge">開始我們的故事 →</button></div></section><section class="view intro" id="bridge" style="background:linear-gradient(180deg,#39344f,#b57e91 65%,#efb8a3)"><small>CHAPTER 02 · TIME</small><h2>走著走著，<br>就成為了我們的兩年。</h2><button class="btn" style="background:#fff9f3;color:#936d74" data-go="days">繼續走進我們的時間 →</button></section><section class="view page" id="days"><div class="nav"><button data-go="bridge">‹</button><span>02 / 06</span><span>OUR DAYS</span></div><h1 class="title">Our Days Together ♡</h1><p class="hint">我們在一起的日子</p><div class="clock-area heart-area" id="clockArea" aria-label="長按畫面讓愛心填滿" role="img"><svg viewBox="0 0 260 260" class="clock-svg" aria-hidden="true"><defs><clipPath id="heartClip"><path d="M130 228 C102 202 17 137 17 81 C17 28 94 12 130 67 C166 12 243 28 243 81 C243 137 158 202 130 228 Z"/></clipPath><linearGradient id="heartGradient" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#B76577"/><stop offset="1" stop-color="#E5A0A5"/></linearGradient></defs><path d="M130 228 C102 202 17 137 17 81 C17 28 94 12 130 67 C166 12 243 28 243 81 C243 137 158 202 130 228 Z" fill="#F0DCD8" stroke="#C9919B" stroke-width="3"/><g clip-path="url(#heartClip)"><rect id="heartLiquid" x="0" y="260" width="260" height="0" fill="url(#heartGradient)"/></g></svg><span class="heart-readout" id="heartReadout"><strong id="dayCount">0</strong><small>天</small></span></div><p class="hint" id="holdHint">長按畫面任意位置，讓時間往前走</p><div class="clock-finish" id="clockFinish" hidden>原來，我們已經一起走了這麼遠。 ♡</div><div class="datecard">開始的那天　♡　直到今天<br><br>2024.11.03 — <span id="today"></span></div><p class="hint">那些平凡的日子，<br>都慢慢變成了我們的故事。</p><div class="flex"></div><button class="btn" data-go="envelopes" id="daysNext" disabled>翻開我們的回憶 →</button></section><section class="view page" id="envelopes"><div class="nav"><button data-go="days">‹</button><span>02 / 06</span><span>OUR LETTERS</span></div><h1 class="title">五封回憶的信 ♡</h1><p class="hint">有些日子，值得再打開一次。<br>輕觸信封，慢慢打開一段回憶。</p><div class="letter-stack" id="letterStack"></div><p class="hint" id="openCount">已開啟 0 / 5 封</p><button class="btn" data-go="album" id="albumButton" disabled>翻開回憶相簿 →</button></section><section class="view memory-letter-view" id="memoryLetter"><div class="nav"><button id="letterBack" type="button">‹</button><span>OUR LETTERS</span><span id="letterNumber">01 / 05</span></div><div class="memory-letter-stage" id="memoryLetterStage"><div class="animated-envelope" id="animatedEnvelope"><div class="envelope-sheet"></div><div class="envelope-back"></div><div class="envelope-flap"></div><div class="envelope-front"></div><div class="animated-seal">♥</div></div><article class="unfolded-letter" id="unfoldedLetter"><img id="letterPhoto" alt="我們的回憶照片"><time id="letterDate"></time><h2 id="letterTitle"></h2><p id="letterQuote" aria-live="polite"></p></article></div><button class="btn" id="closeMemoryLetter" type="button" disabled>收好這封回憶 ♡</button></section><section class="view page" id="album"><div class="nav"><button data-go="envelopes">‹</button><span>02 / 06</span><span>OUR MEMORIES</span></div><h1 class="title">我們的回憶相簿 ♡</h1><p class="hint">五張照片，五個平凡卻珍貴的日子。</p><div id="albumGrid" class="album-grid"></div><button class="btn" data-go="closing">合上相簿，繼續故事 →</button></section><section class="view page" id="timeline"><div class="nav"><button data-go="days">‹</button><span>02 / 06</span><span>OUR MEMORIES</span></div><h1 class="title">我們的時間軸 ♡</h1><p class="hint">照片、日期，還有一句想對妳說的話。<br>點擊卡片，看看當時的我們。</p><div id="list" class="timeline"></div><button class="btn" data-go="closing">繼續我們的故事 →</button></section><section class="view page detail" id="detail"><div class="nav"><button data-go="album">‹</button><span id="number">01 / 05</span><span>♡</span></div><div class="flex"></div><div class="photo"><img id="photo" alt="回憶照片"></div><time id="date"></time><h2 id="heading"></h2><p id="quote"></p><div class="arrows"><button id="prev">‹ 上一張</button><button id="next">下一張 ›</button></div><div class="flex"></div></section><section class="view page closing" id="closing"><div class="nav"><button data-go="album">‹</button><span>02 / 06</span><span>♡</span></div><div class="flex"></div><article>這些日子，<br>是我們寫下的故事。<br><br>但這不是結束，<br>而是更多故事的開始。<p>♡</p></article><div class="flex"></div><button class="btn" data-go="puzzleIntro">進入第三章 · 記憶 →</button><p class="hint">即將翻開另一段珍貴回憶</p></section><section class="view page puzzle-chapter" id="puzzleIntro">
-<div class="nav"><button data-go="closing">‹</button><span>03 / 06</span><span>MEMORIES</span></div>
-<div class="puzzle-intro-body"><div class="puzzle-kicker">CHAPTER 03 · MEMORIES</div><h1 class="title">那些散落的片刻</h1><p class="hint">有些瞬間，後來想想，<br>才知道自己會一直記得。</p><div class="intro-polaroid"><img src="assets/memory-puzzle.jpg" alt="吊椅上的親吻回憶"></div><p class="hint">有一張照片，想和妳一起重新拼好。</p></div><button class="btn" id="startPuzzle">把這段回憶拼回來 →</button></section>
-<section class="view page puzzle-chapter" id="puzzlePlay">
-<div class="nav"><button data-go="puzzleIntro">‹</button><span>03 / 06</span><span id="puzzleCounter">0 / 4</span></div>
-<h1 class="title">把這段回憶，慢慢拼回來</h1><p class="hint">拖曳下方照片碎片，放進上面的對應位置。</p>
-<div id="puzzleBoard" class="puzzle-board" aria-label="四片拼圖的目標區域"></div>
-<div class="puzzle-tray" id="puzzleTray" aria-label="可拖曳照片碎片"></div>
-<p class="hint" id="puzzleHint">靠近正確位置，碎片會自己吸附。</p>
-<button class="btn" id="puzzleSkip" type="button">需要提示？顯示拼圖位置</button></section>
-<section class="view page puzzle-chapter" id="puzzleComplete">
-<div class="nav"><button data-go="puzzlePlay">‹</button><span>03 / 06</span><span>♡</span></div><div class="puzzle-complete-body">
-<div class="complete-polaroid" id="completePolaroid"><img src="assets/memory-puzzle.jpg" alt="吊椅親吻原始照片"></div>
-<h1 class="title">完整的我們</h1><p class="hint">原來那些零零散散的日子，<br>早就成了我最捨不得忘記的回憶。</p></div>
-<button class="btn" id="collectPuzzle">好好收起這段回憶 ♡</button></section>
-<section class="view page puzzle-chapter" id="puzzleCollected"><div class="nav"><button data-go="puzzleComplete">‹</button><span>03 / 06</span><span>OUR MEMORIES</span></div><div class="puzzle-collected-body"><h1 class="title">這個瞬間，收藏好了</h1><p class="hint">有些照片會留在相簿裡，<br>有些回憶，會一直留在心裡。</p><div class="collected-book"><div class="collected-photo"><img src="assets/memory-puzzle.jpg" alt="收藏的回憶照片"></div><div class="book-label">OUR LITTLE MOMENTS ♡</div></div></div>
-<button class="btn" type="button" data-go="fourIntro">翻開第四章 →</button><p class="hint">回憶留了下來，有些改變也留在心裡。</p></section>
-<audio id="chapter04Audio" src="assets/chapter-04.mp3" preload="metadata"></audio>
-<section class="view four-scene four-night" id="fourIntro"><div class="four-top"><button class="four-back" data-go="puzzleCollected">‹</button><span>CHAPTER 04 · UNDERSTAND</span><button class="four-music" aria-label="播放或暫停第四章音樂" type="button">♫</button></div><div class="four-content"><div class="four-eyebrow">懂妳，也讓妳懂我</div><h1>我們本來是不一樣的人</h1><p>但慢慢地，也開始學著走近彼此。</p><div class="star-field" id="starField"><button id="starLeft" class="star-object" aria-label="拖動左邊的星星">✦</button><button id="starRight" class="star-object" aria-label="拖動右邊的星星">✦</button><div id="starLine" class="star-line"></div></div><p id="starHint" class="four-caption">音樂已開始，輕觸星光讓兩顆星慢慢靠近</p><button id="fourStarNext" class="four-continue" disabled>看看妳教會我的事 →</button></div></section>
-<section class="view four-scene four-cream" id="fourCards"><div class="four-top"><button class="four-back" data-go="fourIntro">‹</button><span>04 / 06 · THE THINGS I LEARNED</span><button class="four-music" type="button" aria-label="播放或暫停第四章音樂">♫</button></div><div class="four-content"><div class="four-eyebrow">妳讓我學會的事</div><h1>有些改變，是因為妳</h1><p>把卡片翻開，看看妳教會我的事。</p><div class="four-cards" id="fourCardStack"></div><p class="four-caption" id="fourCardHint">已翻開 0 / 3 張</p><button class="four-continue" id="fourCardNext" disabled>繼續我們的故事 →</button></div></section>
-<section class="view four-scene four-night" id="fourTogether"><div class="four-top"><button class="four-back" data-go="fourCards">‹</button><span>04 / 06 · SIDE BY SIDE</span><button class="four-music" type="button" aria-label="播放或暫停第四章音樂">♫</button></div><div class="four-content"><div class="four-eyebrow">我們的不同</div><h1>我們不需要變成一模一樣的人</h1><p>只是想慢慢學會，站在彼此身邊。</p><div class="together-field" id="togetherField"><div class="cinema-sky" aria-hidden="true"><span class="cinema-moon"></span><span class="cinema-star s1"></span><span class="cinema-star s2"></span><span class="cinema-star s3"></span><span class="cinema-star s4"></span><span class="cinema-hill hill-back"></span><span class="cinema-hill hill-front"></span><span class="cinema-ground"></span></div><div class="together-glow"></div><div class="together-person one" id="personOne" aria-hidden="true"><div class="walker"><svg viewBox="0 0 78 146" class="walker-svg"><defs><linearGradient id="coatone" x1="0" x2="1"><stop offset="0" stop-color="#D5A8BC"/><stop offset="1" stop-color="#9D799A"/></linearGradient></defs><g class="walker-head"><path d="M27 24 Q23 9 38 8 Q55 9 51 27 L48 35 Q38 42 29 34Z" fill="#D9AC9F"/><path d="M24 22 Q22 4 40 5 Q56 6 53 24 Q45 15 34 17Z" fill="#392F43"/></g><path d="M27 40 Q38 34 50 40 L57 90 Q39 98 21 90Z" fill="url(#coatone)"/><g class="walker-arm"><path d="M25 44 Q13 65 19 87" fill="none" stroke="#C99DB1" stroke-width="10" stroke-linecap="round"/></g><g class="walker-arm walker-arm-right"><path d="M51 44 Q62 62 57 86" fill="none" stroke="#C99DB1" stroke-width="10" stroke-linecap="round"/></g><g class="walker-leg leg-left"><path d="M31 91 L29 128 L24 137" fill="none" stroke="#554653" stroke-width="12" stroke-linecap="round"/></g><g class="walker-leg leg-right"><path d="M46 91 L48 128 L53 137" fill="none" stroke="#554653" stroke-width="12" stroke-linecap="round"/></g></svg></div></div><div class="together-person two" id="personTwo" aria-hidden="true"><div class="walker"><svg viewBox="0 0 78 146" class="walker-svg"><defs><linearGradient id="coattwo" x1="0" x2="1"><stop offset="0" stop-color="#B9A9D5"/><stop offset="1" stop-color="#827AA6"/></linearGradient></defs><g class="walker-head"><path d="M27 24 Q23 9 38 8 Q55 9 51 27 L48 35 Q38 42 29 34Z" fill="#E6BBAE"/><path d="M24 22 Q22 4 40 5 Q56 6 53 24 Q45 15 34 17Z" fill="#514453"/></g><path d="M27 40 Q38 34 50 40 L57 90 Q39 98 21 90Z" fill="url(#coattwo)"/><g class="walker-arm"><path d="M25 44 Q13 65 19 87" fill="none" stroke="#B0A0CC" stroke-width="10" stroke-linecap="round"/></g><g class="walker-arm walker-arm-right"><path d="M51 44 Q62 62 57 86" fill="none" stroke="#B0A0CC" stroke-width="10" stroke-linecap="round"/></g><g class="walker-leg leg-left"><path d="M31 91 L29 128 L24 137" fill="none" stroke="#554653" stroke-width="12" stroke-linecap="round"/></g><g class="walker-leg leg-right"><path d="M46 91 L48 128 L53 137" fill="none" stroke="#554653" stroke-width="12" stroke-linecap="round"/></g></svg></div></div></div><p class="four-caption" id="togetherHint">看著兩個人慢慢走近</p><button class="four-continue" id="fourTogetherNext" disabled>留給妳的一句話 →</button></div></section>
-<section class="view four-scene four-night" id="fourWish"><div class="four-top"><button class="four-back" data-go="fourTogether">‹</button><span>04 / 06 · A LITTLE NOTE</span><button class="four-music" type="button" aria-label="播放或暫停第四章音樂">♫</button></div><div class="four-content"><div class="four-eyebrow">有一句話，想留給妳</div><button class="wish-star" id="wishStar" aria-label="輕觸星光展開紙籤">✦</button><p class="four-caption" id="wishHint">輕觸星光，看看我最想說的話</p><article class="wish-paper" id="wishPaper"><p id="wishText"></p></article><button class="four-continue" id="fourWishNext" disabled>把這句話收進心裡 →</button></div></section>
-<section class="view four-scene four-night" id="fourEnding"><div class="four-top"><button class="four-back" data-go="fourWish">‹</button><span>04 / 06 · OUR STORY</span><button class="four-music" type="button" aria-label="播放或暫停第四章音樂">♫</button></div><div class="four-content"><div class="end-stars">✦ <span>✦</span></div><h1>妳讓我學會的事，<br>我都有慢慢記在心裡。</h1><p>不是變成一模一樣的人，<br>而是試著更懂彼此。</p><button class="four-continue" id="fourEndMusic" type="button">結束這一章 ♡</button><p id="fourEndHint" class="four-caption">第五章，還沒寫下的故事。</p></div></section><section class="view five-scene" id="fiveBook"><div class="five-nav"><button data-go="fourEnding">‹</button><span>05 / 06 · THE DAYS AHEAD</span><span>♡</span></div><div class="five-main"><small>CHAPTER 05</small><h1>還沒寫完的以後</h1><p>有些故事，還沒有發生。</p><button class="five-book" id="fiveOpenBook" aria-label="翻開手帳"><span class="five-book-cover">OUR STORY <i>♡</i></span><span class="five-book-inside"><b>那些已經發生的</b><b>那些還沒寫下的</b></span></button><p id="fiveBookText" class="five-story">輕觸手帳，翻開下一頁。</p></div><button class="five-next" id="fiveBookNext" disabled>抽出三張明信片 →</button></section>
-<section class="view five-scene" id="fivePostcards"><div class="five-nav"><button data-go="fiveBook">‹</button><span>05 / 06 · POSTCARDS</span><span>♡</span></div><div class="five-main"><small>LETTERS TO OUR FUTURE</small><h1>寄給未來的三張明信片</h1><p>一張一張抽出來看看。</p><div class="five-post-stack" id="fivePostStack"></div><p id="fivePostCount" class="five-story">已讀完 0 / 3 張</p></div><button class="five-next" id="fivePostNext" disabled>讓願望往前飛 →</button></section>
-<section class="view five-scene five-sky" id="fivePlane"><div class="five-nav"><button data-go="fivePostcards">‹</button><span>05 / 06 · PAPER PLANE</span><span>♡</span></div><div class="five-main"><small>THE DAYS AHEAD</small><h1>把願望，輕輕放出去</h1><div class="five-flight"><button id="fiveLaunch" class="five-paper-plane" aria-label="放飛紙飛機">➤</button><span class="five-flight-trail"></span></div><p id="fivePlaneText" class="five-story">輕觸紙飛機，讓它往前飛。</p></div><button class="five-next" id="fivePlaneNext" disabled>看看未來的風景 →</button></section>
-<section class="view five-scene five-sky" id="fiveFuture"><div class="five-nav"><button data-go="fivePlane">‹</button><span>05 / 06 · WITH YOU</span><span>♡</span></div><div class="five-main"><small>IF WE CAN</small><h1>如果可以的話</h1><div class="five-horizon"><span class="five-sun"></span><div class="five-figures"><span class="five-figure">♟</span><span class="five-figure">♟</span></div></div><p class="five-story">我希望以後那些看起來沒什麼特別的日子，<br>身邊還是有妳。</p><p class="five-story">不是因為未來一定要多盛大，<br>而是有妳在的日子，平凡也會變得很值得。</p></div><button class="five-next" data-go="fiveFinal">翻到最後一頁 →</button></section>
-<section class="view five-scene" id="fiveFinal"><div class="five-nav"><button data-go="fiveFuture">‹</button><span>05 / 06 · TO BE CONTINUED</span><span>♡</span></div><div class="five-main"><small>OUR STORY</small><h1>未完待續</h1><div id="fiveFinalBook" class="five-final-book"><div class="five-final-page"><p>至於剩下的故事，<br>就留給以後的我們，慢慢寫下去。</p><small>有些頁面，現在留白也很好。</small><div class="five-page-flower">✿</div></div></div><p id="fiveLastHint" class="five-story">寫到這裡，先留一點空白。</p></div><button class="five-next" id="fiveFinish">把這一頁留給以後 ♡</button></section>
-<section class="view six-view six-door-view" id="sixDoor" aria-label="第六章最後一道門">
-  <div class="six-head"><button type="button" data-go="fiveFinal" aria-label="返回第五章">‹</button><span>CHAPTER 06 · THE FINAL GIFT</span><span>♡</span></div>
-  <div class="six-door-copy"><div class="six-eyebrow">OUR STORY · FINALE</div><h1>還有最後一件禮物</h1><p>想讓妳親自打開。</p></div>
-  <button type="button" id="sixDoorTap" class="six-door-trigger" aria-label="輕觸打開最後一道門">
-    <div class="six-scene-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="six-vines" aria-hidden="true"><span class="vine-left">❦</span><span class="vine-right">❦</span></div><div class="six-portal" id="sixPortal"><div class="six-portal-light"></div><div class="six-door-left"><span class="six-panel-detail"></span><i class="six-knob"></i></div><div class="six-door-right"><span class="six-panel-detail"></span><i class="six-knob"></i></div><div class="six-door-halo"></div></div>
-    <span class="six-flower six-flower-a">✿</span><span class="six-flower six-flower-b">✿</span>
-  </button>
-  <p class="six-touch-hint" id="sixDoorHint">輕觸畫面，打開最後一道門 ♡</p>
-</section>
-<section class="view six-view six-video-view" id="sixVideo"><div class="six-video-head"><span>OUR STORY · THE LAST GIFT</span><button type="button" id="sixVideoExit" aria-label="關閉影片">✕</button></div>
-  <div class="six-video-frame"><video id="sixFilm" playsinline webkit-playsinline preload="metadata" controls src="assets/chapter-06.mp4" aria-label="兩週年紀念影片"></video>
-    <div id="sixVideoFallback" class="six-video-fallback" hidden><span>♡</span><h2>最後的禮物，還差一段影片</h2><p>請將 MP4 上傳至 GitHub<br><code>assets/chapter-06.mp4</code></p><button type="button" id="sixRetryVideo">重新載入影片</button><button type="button" id="sixPreviewEnd">先預覽結尾畫面 →</button></div>
-  </div><p class="six-video-caption">這段影片，想送給妳。</p></section>
-<section class="view six-view six-end-view" id="sixEnding"><div class="six-head"><span>06 / 06</span><span>OUR STORY · FOREVER IN PROGRESS</span><span>♡</span></div>
-  <div class="six-end-content"><div class="six-end-heart">♡</div><p>這些是我們一起走過的日子。</p><p>至於以後會寫下什麼樣的故事，<br>我還不知道。</p><p>但很謝謝妳，<br>出現在我的故事裡。</p><h1>兩週年快樂。♡</h1></div>
-  <div class="six-end-buttons"><button type="button" id="sixReplay">再看一次影片</button><button type="button" id="sixRestart">回到故事起點</button></div>
-</section></main><script>
-const memories=[['2024.11.03','故事開始的那一天','從這一天開始，平凡的日子裡，多了一個特別的妳。','assets/memory-41.jpg'],['2024.12.25','第一個一起過的聖誕節','第一個聖誕節，因為有妳在身邊，連冬天都變得很溫暖。','assets/memory-42.jpg'],['2025.01.01','第一次一起迎接新年','新的一年開始時，我最想一起迎接的人，就是妳。','assets/memory-43.jpg'],['2025.07.19','第一次陪妳過生日','第一次陪妳過生日，希望妳那天的開心，也能一直留在往後的每一天。','assets/memory-49.jpg'],['2025.11.03','我們的第一週年','走過第一年之後，才更確定，之後的路我也都想和妳一起走。','assets/memory-47.jpg']];let current='cover',index=0;const $=id=>document.getElementById(id);function dateTW(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}function updateDays(){const parts=dateTW().split('-').map(Number);const end=Date.UTC(parts[0],parts[1]-1,parts[2]);const count=Math.max(0,Math.round((end-Date.UTC(2024,10,3))/86400000));$('today').textContent=dateTW().replaceAll('-','.');$('dayCount').textContent=count.toLocaleString('zh-TW')}let sceneTransitionTimer=0;
-function chapterOf(id){if(['cover','envelope','letter'].includes(id))return 1;if(['bridge','days','envelopes','memoryLetter','album','timeline','detail','closing'].includes(id))return 2;if(id.startsWith('puzzle'))return 3;if(id.startsWith('four'))return 4;if(id.startsWith('five'))return 5;if(id.startsWith('six'))return 6;return 0}
-function go(id){
- const next=$(id),previous=$(current);if(!next)return;
- if(previous===next)return;
- clearTimeout(sceneTransitionTimer);
- document.querySelectorAll('.view').forEach(v=>{v.classList.remove('scene-enter','scene-exit','scene-intra','scene-chapter');if(v!==previous&&v!==next)v.classList.remove('on')});
- const crossChapter=chapterOf(current)!==chapterOf(id);
- if(previous){previous.classList.add('scene-exit',crossChapter?'scene-chapter':'scene-intra');previous.setAttribute('aria-hidden','true');}
- next.classList.add('on','scene-enter',crossChapter?'scene-chapter':'scene-intra');next.removeAttribute('aria-hidden');
- current=id;scrollTo(0,0);
- if(id==='days'){updateDays();renderClock()}if(id==='detail')showDetail();if(id==='envelope')resetFirstEnvelope();
- sceneTransitionTimer=setTimeout(()=>{if(previous&&previous!==next){previous.classList.remove('on','scene-exit','scene-intra','scene-chapter')}next.classList.remove('scene-enter','scene-intra','scene-chapter')},crossChapter?1050:720);
-}document.querySelectorAll('[data-go]').forEach(el=>el.addEventListener('click',()=>go(el.dataset.go)));$('cover').addEventListener('click',()=>go('envelope'));$('cover').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go('envelope')}});const list=$('list');memories.forEach((m,i)=>{const b=document.createElement('button');b.className='memory';b.innerHTML='<img src="'+m[3]+'" alt="回憶照片"><div><time>'+m[0]+'</time><strong>'+m[1]+'</strong><small>'+m[2]+'</small></div>';b.onclick=()=>{index=i;go('detail')};list.appendChild(b)});function showDetail(){const m=memories[index];$('photo').src=m[3];$('date').textContent=m[0];$('heading').textContent=m[1];$('quote').textContent='「'+m[2]+'」';$('number').textContent=(index+1).toString().padStart(2,'0')+' / 05';$('prev').hidden=index===0;$('next').hidden=index===memories.length-1;$('prev').disabled=index===0;$('next').disabled=index===memories.length-1}$('prev').onclick=()=>{index=Math.max(0,index-1);showDetail()};$('next').onclick=()=>{index=Math.min(4,index+1);showDetail()};let timeStart=0,progress=0,clockRunning=false,clockDone=false,clockRequest=0,holdTimer=0;const clock=$('clockArea'),heartLiquid=$('heartLiquid');function dayTotal(){const d=dateTW().split('-').map(Number);return Math.max(0,Math.round((Date.UTC(d[0],d[1]-1,d[2])-Date.UTC(2024,10,3))/86400000))}function renderClock(){const days=dayTotal();$('dayCount').textContent=Math.floor(days*progress).toLocaleString('zh-TW');heartLiquid.setAttribute('y',String(260-progress*260));heartLiquid.setAttribute('height',String(progress*260));$('heartReadout').classList.toggle('light',progress>=.55);$('daysNext').disabled=!clockDone;$('clockFinish').hidden=!clockDone;clock.classList.toggle('finished',clockDone)}function advanceClock(ts){if(!clockRunning)return;if(!timeStart)timeStart=ts;progress=Math.min(1,progress+(ts-timeStart)/11000);timeStart=ts;if(progress>=1){clockDone=true;clockRunning=false;clock.classList.remove('pressed');$('holdHint').textContent='愛心填滿了 ♡'}renderClock();if(clockRunning)clockRequest=requestAnimationFrame(advanceClock)}function startClock(){if(clockDone||clockRunning)return;clockRunning=true;timeStart=0;clock.classList.add('pressed');clockRequest=requestAnimationFrame(advanceClock)}const dayScreen=$('days');let activePointer=null;
-function stopClock(){clearTimeout(holdTimer);holdTimer=0;activePointer=null;if(clockRunning){clockRunning=false;cancelAnimationFrame(clockRequest);timeStart=0;clock.classList.remove('pressed');if(!clockDone)$('holdHint').textContent='已暫停 · 再次長按畫面繼續';renderClock()}}
-function clockDown(e){if(current!=='days'||clockDone||e.button!==0||e.target.closest('button'))return;activePointer=e.pointerId;clearTimeout(holdTimer);holdTimer=setTimeout(()=>{if(activePointer===e.pointerId){startClock();$('holdHint').textContent='時間正在往前走 · 鬆手即可暫停'}},350)}
-function clockUp(e){if(activePointer===null)return;if(e&&e.pointerId!==undefined&&e.pointerId!==activePointer)return;stopClock()}
-dayScreen.addEventListener('pointerdown',clockDown);
-window.addEventListener('pointerup',clockUp);
-window.addEventListener('pointercancel',clockUp);
-dayScreen.addEventListener('contextmenu',e=>e.preventDefault());
-dayScreen.addEventListener('keydown',e=>{if((e.key===' '||e.key==='Enter')&&e.target===clock&&!clockDone&&!e.repeat){e.preventDefault();startClock()}});
-dayScreen.addEventListener('keyup',e=>{if((e.key===' '||e.key==='Enter')&&e.target===clock)stopClock()});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)stopClock()});
-let opened=new Set();const stack=$('letterStack'),album=$('albumGrid');let letterTimers=[],typingTimer=null,activeLetter=0;
-function clearLetterTimers(){letterTimers.forEach(clearTimeout);letterTimers=[];if(typingTimer)clearTimeout(typingTimer);typingTimer=null}
-function afterLetter(ms,fn){letterTimers.push(setTimeout(fn,ms))}
-function typeMemoryText(text){const target=$('letterQuote');target.textContent='「';let pos=0;const letters=Array.from(text);function advance(){if(current!=='memoryLetter')return;if(pos>=letters.length){target.textContent+='」';$('closeMemoryLetter').disabled=false;return}let c=letters[pos++];target.textContent+=c;typingTimer=setTimeout(advance,/[，。！？、]/.test(c)?155:55)}advance()}
-function showMemoryLetter(i){clearLetterTimers();activeLetter=i;const m=memories[i];$('letterNumber').textContent=String(i+1).padStart(2,'0')+' / 05';$('letterPhoto').src=m[3];$('letterDate').textContent=m[0];$('letterTitle').textContent=m[1];$('letterQuote').textContent='';$('closeMemoryLetter').disabled=true;const env=$('animatedEnvelope'),sheet=$('unfoldedLetter');env.className='animated-envelope';sheet.className='unfolded-letter';go('memoryLetter');afterLetter(80,()=>env.classList.add('zoom'));afterLetter(430,()=>env.classList.add('open'));afterLetter(1250,()=>{env.classList.add('recede');sheet.classList.add('visible')});afterLetter(1970,()=>typeMemoryText(m[2]))}
-function closeMemoryLetter(){clearLetterTimers();const sheet=$('unfoldedLetter');sheet.classList.add('closing');afterLetter(510,()=>{go('envelopes');sheet.className='unfolded-letter'})}
-$('closeMemoryLetter').addEventListener('click',closeMemoryLetter);$('letterBack').addEventListener('click',closeMemoryLetter);
-memories.forEach((m,i)=>{const letter=document.createElement('button');letter.className='sealed-letter';letter.innerHTML='<time>'+m[0]+'</time><strong>'+m[1]+'</strong><span class="seal-icon">♥</span><small>輕觸打開回憶</small>';letter.onclick=()=>{if(!opened.has(i)){opened.add(i);letter.classList.add('open');letter.querySelector('.seal-icon').textContent='✓';letter.querySelector('small').textContent='已打開 · 可再次閱讀';$('openCount').textContent='已開啟 '+opened.size+' / 5 封';$('albumButton').disabled=opened.size!==5}showMemoryLetter(i)};stack.append(letter);
-const card=document.createElement('button');card.className='album-card';card.innerHTML='<img src="'+m[3]+'" alt="回憶 '+(i+1)+'"><span>'+m[0]+'</span>';card.onclick=()=>{index=i;go('detail')};album.append(card)});renderClock();
-let tx=0;$('detail').addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});$('detail').addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>70){index=Math.max(0,Math.min(4,index+(d<0?1:-1)));showDetail()}},{passive:true});document.addEventListener('visibilitychange',()=>{if(!document.hidden&&current==='days')updateDays()});setInterval(()=>{if(current==='days')updateDays()},60000);
-
-// Chapter 03: four draggable quadrants, pointer coordinates account for each iPhone viewport
-const puzzleSource='assets/memory-puzzle.jpg',puzzleBoard=$('puzzleBoard'),puzzleTray=$('puzzleTray');
-const quadrantPositions=['0% 0%','100% 0%','0% 100%','100% 100%'];
-let puzzlePlaced=new Set(),puzzleHints=false,dragData=null;
-function initPuzzle(){
- puzzlePlaced=new Set();puzzleHints=false;puzzleBoard.replaceChildren();puzzleTray.replaceChildren();
- const order=[2,0,3,1];
- for(let i=0;i<4;i++){const slot=document.createElement('div');slot.className='puzzle-target';slot.dataset.slot=i;slot.addEventListener('pointerup',e=>{if(dragData)dropPuzzle(e.clientX,e.clientY)});puzzleBoard.appendChild(slot)}
- for(const i of order){const piece=document.createElement('button');piece.className='puzzle-fragment';piece.type='button';piece.dataset.piece=i;piece.style.backgroundPosition=quadrantPositions[i];piece.setAttribute('aria-label','照片碎片 '+(i+1));piece.addEventListener('pointerdown',startPuzzleDrag);piece.addEventListener('click',()=>{if(!dragData)placePiece(i,true)});puzzleTray.appendChild(piece)}
- $('puzzleCounter').textContent='0 / 4';$('puzzleHint').textContent='拖曳碎片到正確位置，靠近就會吸附。';
-}
-function startPuzzleDrag(e){if(e.button!==0)return;e.preventDefault();const original=e.currentTarget,i=Number(original.dataset.piece),rect=original.getBoundingClientRect();
- const ghost=original.cloneNode(false);ghost.classList.add('puzzle-floating');ghost.style.width=rect.width+'px';ghost.style.height=rect.height+'px';ghost.style.left=(e.clientX-rect.width/2)+'px';ghost.style.top=(e.clientY-rect.height/2)+'px';document.body.appendChild(ghost);
- dragData={i,ghost,original,x:e.clientX,y:e.clientY};original.style.opacity='.35';
- window.addEventListener('pointermove',movePuzzleDrag);window.addEventListener('pointerup',endPuzzleDrag,{once:true});window.addEventListener('pointercancel',cancelPuzzleDrag,{once:true});
-}
-function movePuzzleDrag(e){if(!dragData)return;dragData.x=e.clientX;dragData.y=e.clientY;const rect=dragData.ghost.getBoundingClientRect();dragData.ghost.style.left=(e.clientX-rect.width/2)+'px';dragData.ghost.style.top=(e.clientY-rect.height/2)+'px'}
-function cancelPuzzleDrag(){if(dragData){dragData.original.style.opacity='';dragData.ghost.remove();dragData=null}window.removeEventListener('pointermove',movePuzzleDrag)}
-function endPuzzleDrag(e){if(!dragData)return;const i=dragData.i;const ok=dropPuzzle(e.clientX,e.clientY);if(!ok)dragData.original.style.opacity='';dragData.ghost.remove();dragData=null;window.removeEventListener('pointermove',movePuzzleDrag)}
-function dropPuzzle(x,y){if(!dragData)return false;const slot=puzzleBoard.children[dragData.i],r=slot.getBoundingClientRect();const pad=Math.max(22,r.width*.28);if(x>=r.left-pad&&x<=r.right+pad&&y>=r.top-pad&&y<=r.bottom+pad){placePiece(dragData.i,false);return true}return false}
-function placePiece(i,keyboard){if(puzzlePlaced.has(i))return;if(keyboard&&!puzzleHints){$('puzzleHint').textContent='用手指拖曳到對應區塊；也可點下方「顯示拼圖位置」取得提示。';return}
- puzzlePlaced.add(i);const slot=puzzleBoard.children[i];slot.classList.add('correct');const photo=document.createElement('div');photo.className='puzzle-fragment placed';photo.style.backgroundPosition=quadrantPositions[i];slot.appendChild(photo);
- const tile=puzzleTray.querySelector('[data-piece="'+i+'"]');if(tile)tile.remove();$('puzzleCounter').textContent=puzzlePlaced.size+' / 4';
- if(navigator.vibrate)navigator.vibrate(15);
- if(puzzlePlaced.size===4){$('puzzleHint').textContent='拼好了，照片回來了。♡';setTimeout(()=>{go('puzzleComplete');$('puzzleComplete').classList.add('arrive')},850)}
-}
-$('startPuzzle').addEventListener('click',()=>{initPuzzle();go('puzzlePlay')});
-$('puzzleSkip').addEventListener('click',()=>{puzzleHints=true;for(let i=0;i<4;i++){const slot=puzzleBoard.children[i];if(!puzzlePlaced.has(i)){slot.style.backgroundImage="url('"+puzzleSource+"')";slot.style.backgroundPosition=quadrantPositions[i];slot.style.backgroundSize='200% 200%';slot.style.opacity='.52'}}$('puzzleHint').textContent='現在可以點碎片，或拖曳到淡色圖片位置。'});
-$('collectPuzzle').addEventListener('click',()=>{const e=$('puzzleComplete');e.classList.add('collecting');setTimeout(()=>{go('puzzleCollected');e.classList.remove('collecting')},750)});
-
-let firstTimers=[],firstTyping=null,firstOpening=false;
-function firstLater(ms,fn){firstTimers.push(setTimeout(fn,ms))}
-function clearFirstTimers(){firstTimers.forEach(clearTimeout);firstTimers=[];if(firstTyping!==null)clearTimeout(firstTyping);firstTyping=null}
-function resetFirstEnvelope(){clearFirstTimers();firstOpening=false;$('firstEnvelope').className='first-envelope';$('firstLetterPaper').className='first-letter-paper';$('firstTypedText').textContent='';$('firstContinue').disabled=true;$('firstHint').textContent='輕觸信封，打開這封信'}
-function typeFirstLetter(){const text='有些日子，當下沒有覺得特別。\n回頭看才發現，\n原來每個平凡的片刻，\n都慢慢變成了我們的故事。\n\n這份小小的禮物，\n想邀請妳一起打開。';let i=0;const arr=Array.from(text),out=$('firstTypedText');function tick(){if(current!=='envelope')return;if(i>=arr.length){$('firstContinue').disabled=false;$('firstHint').textContent='這封信，寫給妳 ♡';return}const ch=arr[i++];out.textContent+=ch;firstTyping=setTimeout(tick,ch==='\n'?155:/[，。！？]/.test(ch)?175:55)}tick()}
-$('firstEnvelope').addEventListener('click',()=>{if(firstOpening)return;firstOpening=true;$('firstHint').textContent='一封寫給妳的信，正在慢慢打開…';const e=$('firstEnvelope');e.classList.add('selected');firstLater(430,()=>e.classList.add('open'));firstLater(1260,()=>{e.classList.add('recede');$('firstLetterPaper').classList.add('visible')});firstLater(1970,typeFirstLetter)});
-$('firstContinue').addEventListener('click',()=>{clearFirstTimers();go('bridge')});
-
-/* Chapter 04 */
-const fourAudio=$('chapter04Audio');
-let fourStarted=false,fourCompleted=false,fourFade=0;
-const fourIds=new Set(['fourIntro','fourCards','fourTogether','fourWish','fourEnding']);
-function updateMusicButtons(){document.querySelectorAll('.four-music').forEach(b=>{b.textContent=fourAudio.paused?'♫':'Ⅱ';b.classList.toggle('playing',!fourAudio.paused);b.setAttribute('aria-label',fourAudio.paused?'播放第四章歌曲':'暫停第四章歌曲')})}
-async function playFour(){clearInterval(fourFade);fourAudio.volume=0.65;try{await fourAudio.play();fourStarted=true;updateMusicButtons()}catch(e){$('starHint').textContent='點右上角音符即可播放音樂';updateMusicButtons()}}
-function fadeFour(){clearInterval(fourFade);if(fourAudio.paused){fourAudio.currentTime=0;return}fourFade=setInterval(()=>{fourAudio.volume=Math.max(0,fourAudio.volume-.05);if(fourAudio.volume<=0){clearInterval(fourFade);fourAudio.pause();fourAudio.currentTime=0;fourAudio.volume=.65;updateMusicButtons()}},90)}
-fourAudio.addEventListener('play',updateMusicButtons);fourAudio.addEventListener('pause',updateMusicButtons);fourAudio.addEventListener('ended',updateMusicButtons);
-document.querySelectorAll('.four-music').forEach(b=>b.addEventListener('click',()=>{if(fourAudio.paused)playFour();else{fourAudio.pause();updateMusicButtons()}}));
-const starField=$('starField'),starLeft=$('starLeft'),starRight=$('starRight');let starsJoined=false,starsMoving=false;
-function joinStars(){if(starsMoving||starsJoined)return;starsMoving=true;$('starHint').textContent='兩顆星，正慢慢靠近…';starField.classList.add('moving');setTimeout(()=>{starsJoined=true;starsMoving=false;starField.classList.add('connected');$('starHint').textContent='兩個不一樣的人，也開始走近彼此 ♡';$('fourStarNext').disabled=false},2950)}
-starField.addEventListener('click',joinStars);
-$('fourStarNext').onclick=()=>go('fourCards');
-const fourCardTexts=[['先想想妳的感受','以前的我，常常先想事情有沒有道理。\n但和妳在一起之後，我慢慢懂了，\n有些時候，比起急著解釋，\n更重要的是先在意妳當下的感受。'],['不是每件事都要爭對錯','我以前總以為，\n只要把事情講清楚，問題就會變少。\n可是妳讓我知道，\n關係裡不是每一次都要分出誰對誰錯，\n有時候，理解比結論更重要。'],['好好聽妳說完','妳讓我慢慢學會，\n不要急著回應，也不要急著反駁。\n先聽妳說完，先懂妳在意什麼，\n其實比我急著表達自己，更重要。']];
-const seenFour=new Set();fourCardTexts.forEach(([title,body],i)=>{const b=document.createElement('button');b.type='button';b.className='four-card';const heading=document.createElement('strong');heading.textContent=title;const content=document.createElement('div');content.className='four-card-body';content.textContent=body;b.append(heading,content);b.addEventListener('click',()=>{b.classList.toggle('open');seenFour.add(i);$('fourCardHint').textContent='已翻開 '+seenFour.size+' / 3 張';$('fourCardNext').disabled=seenFour.size!==3});$('fourCardStack').append(b)});
-$('fourCardNext').onclick=()=>go('fourTogether');
-let peopleJoined=false,peopleMoving=false;
-function joinPeople(){if(peopleJoined||peopleMoving)return;peopleMoving=true;const field=$('togetherField');field.classList.remove('approaching','joined');void field.offsetWidth;$('togetherHint').textContent='兩個人，慢慢走到彼此身邊…';requestAnimationFrame(()=>requestAnimationFrame(()=>{if(current==='fourTogether')field.classList.add('approaching')}));setTimeout(()=>{if(current!=='fourTogether')return;peopleJoined=true;peopleMoving=false;field.classList.add('joined');$('togetherHint').textContent='我們不用完全一樣，也可以努力理解彼此。';$('fourTogetherNext').disabled=false},3700)}
-$('fourTogetherNext').onclick=()=>go('fourWish');
-let wishOpened=false,wishTyping=0;
-$('wishStar').addEventListener('click',()=>{if(wishOpened)return;wishOpened=true;$('wishStar').classList.add('lit');$('wishPaper').classList.add('visible');$('wishHint').textContent='有一句話，想留給妳';const out=$('wishText');const text=Array.from('謝謝妳讓我看見，\n原來愛一個人，不只是陪伴，\n也是願意因為對方，\n慢慢成為更好的人。');let i=0;function type(){if(current!=='fourWish')return;if(i>=text.length){$('fourWishNext').disabled=false;return}const c=text[i++];out.textContent+=c;wishTyping=setTimeout(type,c==='\n'?240:/[，。]/.test(c)?170:65)}type()});
-$('fourWishNext').onclick=()=>go('fourEnding');
-$('fourEndMusic').onclick=()=>{fourCompleted=true;fadeFour();$('fourEndHint').textContent='接下來，翻開還沒寫完的以後。';$('fourEndMusic').textContent='翻開第五章 →';$('fourEndMusic').onclick=()=>go('fiveBook')};
-const originalGo=go;go=function(id){const entering=id==='fourIntro'&&!fourIds.has(current);const leaving=fourIds.has(current)&&!fourIds.has(id);if(entering){fourAudio.currentTime=0;playFour()}if(leaving)fadeFour();originalGo(id);if(id==='fourTogether')joinPeople();if(id==='sixDoor'&&!sixOpening){$('sixDoor').classList.remove('opening');$('sixDoorHint').textContent='輕觸畫面，打開最後一道門 ♡'}if(id==='sixVideo'&&sixFilm.ended)sixFilm.currentTime=0};
-updateMusicButtons();
-
-/* Chapter 05 interactions. No automatic progress or music. */
-$('fiveOpenBook').addEventListener('click',()=>{const b=$('fiveOpenBook');if(b.classList.contains('open'))return;b.classList.add('open');setTimeout(()=>{$('fiveBookText').textContent='翻到這裡才發現，\n我最期待的，\n不只是已經發生的那些事。';$('fiveBookNext').disabled=false},880)});
-$('fiveBookNext').onclick=()=>go('fivePostcards');
-const futurePostcards=[['一起去沒去過的地方','想和妳一起去還沒去過的地方，\n不是因為風景一定多特別，\n而是想到能和妳一起出發，\n就會覺得那段路值得期待。'],['一起過那些普通的日子','比起那些特別安排的節日，\n我其實也很期待，\n和妳一起過很多看起來沒什麼特別的日子。\n吃飯、散步、說說話，這樣就很好。'],['一起慢慢變老一點','如果可以的話，\n我也想和妳一起慢慢變老一點。\n不是一下子走到很遠的以後，\n而是把每一段日子，都慢慢走長。']];
-const futureSeen=new Set();futurePostcards.forEach(([title,body],i)=>{const b=document.createElement('button');b.type='button';b.className='five-postcard';const small=document.createElement('small');small.textContent='POSTCARD · 0'+(i+1);const strong=document.createElement('strong');strong.textContent=title;const p=document.createElement('p');p.textContent=body;p.hidden=true;b.append(small,strong,p);b.onclick=()=>{b.classList.toggle('open');p.hidden=!b.classList.contains('open');futureSeen.add(i);$('fivePostCount').textContent='已讀完 '+futureSeen.size+' / 3 張';$('fivePostNext').disabled=futureSeen.size<3};$('fivePostStack').appendChild(b)});
-$('fivePostNext').onclick=()=>go('fivePlane');
-$('fiveLaunch').onclick=()=>{const box=$('fiveLaunch').parentElement;if(box.classList.contains('flying'))return;box.classList.add('flying');$('fivePlaneText').textContent='未來會是什麼樣子，\n我們現在都還不知道。\n但只要想到有些日子，\n也許會和妳一起走過，\n就會覺得以後也值得期待。';setTimeout(()=>$('fivePlaneNext').disabled=false,1600)};
-$('fivePlaneNext').onclick=()=>go('fiveFuture');
-$('fiveFinish').onclick=()=>{if($('fiveFinalBook').classList.contains('closed'))return;$('fiveFinalBook').classList.add('closed');$('fiveLastHint').textContent='這些空白，就留給我們慢慢寫下去。';$('fiveFinish').textContent='開啟最後一章 →';$('fiveFinish').disabled=false;$('fiveFinish').onclick=()=>go('sixDoor')};
-
-/* Chapter 06: video is user-gesture initiated, preserving iPhone Safari playback policy. */
-const sixFilm=$('sixFilm');let sixOpening=false,sixTimer=null;
-function sixShowMissing(){if(current==='sixVideo')$('sixVideoFallback').hidden=false}
-function sixPlayFromDoor(){if(sixOpening)return;sixOpening=true;const door=$('sixDoor');door.classList.remove('opening');void door.offsetWidth;door.classList.add('opening');$('sixVideoFallback').hidden=true;$('sixDoorHint').textContent='門後的故事，正在打開…';sixFilm.currentTime=0;
- // play() runs inside the click gesture; the video remains visually behind the opening door.
- const attempt=sixFilm.play();if(attempt&&attempt.catch)attempt.catch(()=>{});
- sixTimer=setTimeout(()=>{go('sixVideo');if(sixFilm.error||sixFilm.networkState===HTMLMediaElement.NETWORK_NO_SOURCE){sixShowMissing()}else if(sixFilm.paused){sixFilm.play().catch(()=>{sixShowMissing()})}},2400);
-}
-$('sixDoorTap').onclick=sixPlayFromDoor;
-$('sixDoor').addEventListener('click',e=>{if(!e.target.closest('.six-head'))sixPlayFromDoor()});
-sixFilm.addEventListener('error',sixShowMissing);
-sixFilm.addEventListener('ended',()=>go('sixEnding'));
-$('sixVideoExit').onclick=()=>{sixFilm.pause();go('sixDoor');$('sixDoor').classList.remove('opening');sixOpening=false};
-$('sixRetryVideo').onclick=()=>{sixFilm.load();$('sixVideoFallback').hidden=true;sixFilm.play().catch(sixShowMissing)};
-$('sixPreviewEnd').onclick=()=>go('sixEnding');
-$('sixReplay').onclick=()=>{$('sixVideoFallback').hidden=true;sixFilm.currentTime=0;go('sixVideo');sixFilm.play().catch(()=>{sixFilm.controls=true})};
-$('sixRestart').onclick=()=>{sixFilm.pause();sixFilm.currentTime=0;go('cover')};
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1"><meta name="theme-color" content="#151625"><title>我們之間，未完待續 · Our Story</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+:root{--cream:#fbefe6;--mist:#e9cbd4;--rose:#c992a8;--wine:#9c637b;--mid:#362d46;--night:#16172a;--serif:"Noto Serif TC","Songti TC",serif;--sans:"Noto Sans TC",-apple-system,sans-serif}
+*{box-sizing:border-box}html,body{height:100%;margin:0;overflow:hidden;background:#11121b}body{font-family:var(--sans);color:var(--cream);-webkit-font-smoothing:antialiased}button{font:inherit;cursor:pointer}button:disabled{opacity:.35;cursor:default}button:focus-visible,[tabindex]:focus-visible{outline:2px solid #ffe3b6;outline-offset:5px}
+#app{position:relative;isolation:isolate;width:min(100%,430px);height:100dvh;margin:auto;overflow:hidden;background:#1d1b2e;box-shadow:0 0 70px #0008}
+.scene{position:absolute;inset:0;overflow:hidden;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top) + 22px) 23px calc(env(safe-area-inset-bottom) + 24px);opacity:0;pointer-events:none;transform:translate3d(0,14px,0) scale(1.016);filter:blur(5px);transition:opacity .95s ease,transform 1.05s cubic-bezier(.21,.7,.18,1),filter .95s ease}
+.scene.active{opacity:1;pointer-events:auto;transform:none;filter:none;z-index:3}.scene.exiting{opacity:0;transform:scale(1.045) translateY(-9px);filter:blur(9px);z-index:2}
+.night{background:radial-gradient(ellipse at 67% 10%,#8f62803d,transparent 46%),linear-gradient(166deg,#191a35,#4a3859 66%,#8b6079)}
+.paper-scene{background:radial-gradient(circle at 8% 6%,#fffdf8,transparent 50%),linear-gradient(160deg,#fff8ef,#f1e5dc 73%,#dfc3c3);color:#5b4351}
+.wide-art{position:absolute;inset:0;background-position:center;background-size:cover;z-index:-2}.dim{position:absolute;inset:0;background:linear-gradient(#101325ad,transparent 42%,#17152865 100%);z-index:-1;pointer-events:none}
+.overline{font-size:10px;letter-spacing:.24em;color:#f5cddd;text-align:center;text-transform:uppercase}.paper-scene .overline{color:#a77583}
+.top{display:flex;align-items:center;justify-content:space-between;min-height:38px;position:relative;z-index:4}.top small{font-size:10px;letter-spacing:.14em;color:inherit;opacity:.67}.back{color:inherit;border:0;background:transparent;font-size:27px;line-height:1;width:38px;text-align:left;padding:0}.top .tiny{font-size:14px;opacity:.8}.top .sound{border:1px solid #ffffff55;border-radius:22px;background:#ffffff19;color:inherit;padding:7px 12px;font-size:12px}
+h1,h2,p{margin:0}h1,h2{font-family:var(--serif);font-weight:400;line-height:1.7}h1{font-size:clamp(25px,6.7vw,31px);letter-spacing:.04em}h2{font-size:21px}.bodycopy{font:14px/2 var(--serif);letter-spacing:.04em;white-space:pre-line}.sub{font-size:13px;line-height:2.1;opacity:.78}.center{text-align:center}.spacer{flex:1}.hero{padding-top:clamp(18px,5dvh,48px);text-align:center}.hero .overline{margin-bottom:15px}
+.primary{width:100%;min-height:54px;flex-shrink:0;border:1px solid #f9e9dc88;border-radius:40px;background:linear-gradient(130deg,#e9bbc0,#b87894);color:#291d32;letter-spacing:.07em;box-shadow:0 12px 32px #160b1c3b;transition:transform .25s}.primary:active{transform:scale(.976)}.paper-scene .primary{color:white}
+.ghost{border:1px solid #f7e5e3a6;background:#38293a6e;color:#fff1ed;min-height:46px;padding:0 20px;border-radius:30px}
+.hint{text-align:center;font-size:12px;letter-spacing:.05em;opacity:.75;line-height:1.8}.paper-scene .hint{color:#976b7c}
+.cover{padding:0;background:#1b1a2b url('assets/cover.png') center/cover no-repeat;cursor:pointer}
+.cover:focus{outline-offset:-5px}
+.cover .cover-accessible{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}
+.envelope-stage{flex:1;display:grid;place-items:center;position:relative;perspective:900px}
+.envelope-graphic{position:relative;width:min(68vw,270px);height:174px;filter:drop-shadow(0 28px 30px #0d0b1c70);transition:transform 1s;cursor:pointer}
+.envelope-graphic .pocket{position:absolute;inset:0;background:linear-gradient(130deg,#ffece3,#d5a7aa);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);border-radius:5px}
+.envelope-graphic .flap{position:absolute;inset:-1px 0 0;background:#ffe8e3;clip-path:polygon(0 0,100% 0,50% 65%);transform-origin:top;transition:transform 1s;z-index:4}
+.envelope-graphic .letter-peek{position:absolute;left:10%;width:80%;top:15%;height:85%;background:#fffaf1;box-shadow:0 8px 24px #75445544;transition:transform 1s;z-index:2}
+.envelope-graphic .fold{position:absolute;inset:0;background:#e7bfc1;clip-path:polygon(0 100%,50% 35%,100% 100%);z-index:3}
+.envelope-graphic .wax{position:absolute;z-index:5;left:calc(50% - 20px);top:73px;width:40px;height:40px;border-radius:50%;background:#b86f85;display:grid;place-items:center;color:#ffe7ce;box-shadow:0 3px 10px #8c5361}.envelope-graphic.open .flap{transform:rotateX(175deg)}.envelope-graphic.open .letter-peek{transform:translateY(-110px)}.envelope-graphic.open .wax{opacity:0}
+.letter-sheet{padding:28px 23px;background:#fffaf2;box-shadow:0 18px 45px #67354826;border:1px solid #eddcd4;transform:rotate(-1deg);font:14px/2.25 var(--serif);color:#715160;text-align:center;min-height:220px;display:grid;place-items:center;white-space:pre-line}
+.timeline-heart{width:min(65vw,250px);height:min(65vw,250px);margin:25px auto;position:relative;display:grid;place-items:center;filter:drop-shadow(0 13px 25px #a46e8066)}
+.heart-shape{position:absolute;inset:0;background:#e2bcc4;clip-path:path('M 125 220 C 80 185 2 126 17 69 C 31 12 98 20 125 62 C 152 20 219 12 233 69 C 248 126 170 185 125 220 Z');transform:scale(.98)}
+.heart-fill{position:absolute;inset:0;background:linear-gradient(0deg,#ac607e,#ecb1b2);clip-path:path('M 125 220 C 80 185 2 126 17 69 C 31 12 98 20 125 62 C 152 20 219 12 233 69 C 248 126 170 185 125 220 Z');transform:scaleY(var(--fill,0));transform-origin:bottom;transition:transform .1s linear}
+.heart-number{position:relative;z-index:2;text-align:center;color:#fffafa;text-shadow:0 3px 15px #512e46;font-family:var(--serif);font-size:44px}.heart-number small{display:block;font:12px var(--sans);letter-spacing:.2em}
+#hold{touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}
+.memory-row{width:100%;display:flex;gap:12px;align-items:center;text-align:left;background:#fff9f3;border:1px solid #e9d4cf;border-radius:10px;padding:9px;box-shadow:0 8px 23px #583a4a18;color:#684858}
+.memory-row img{width:73px;height:75px;object-fit:cover;border-radius:6px}.memory-row span{font-size:11px;opacity:.7}.memory-row strong{display:block;font:14px/1.6 var(--serif);margin-top:5px}
+.memories{overflow-y:auto;min-height:0;flex:1;display:flex;flex-direction:column;gap:11px;padding:15px 2px;scrollbar-width:none}
+.photo-card{background:#fffaf6;padding:11px 11px 22px;box-shadow:0 15px 50px #6c465128;transform:rotate(-1deg)}.photo-card img{display:block;width:100%;max-height:45dvh;object-fit:contain}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:10px}.pager button{background:transparent;color:inherit;border:1px solid currentColor;border-radius:30px;padding:10px 15px;font-size:12px}
+.puzzle-grid{width:min(78vw,300px);height:min(78vw,300px);margin:20px auto;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;touch-action:none;user-select:none;filter:drop-shadow(0 15px 25px #5035444b)}
+.puzzle-tile{border:0;background-image:url('assets/memory-puzzle.jpg');background-size:200% 200%;touch-action:none;box-shadow:0 2px 8px #33203130;transition:transform .28s}.puzzle-tile.selected{outline:3px solid #b6738b;transform:scale(.95)}
+.puzzle-done{width:min(78vw,300px);height:min(78vw,300px);object-fit:cover;margin:auto;box-shadow:0 16px 45px #63424f44}
+.star-stage{flex:1;min-height:270px;position:relative;overflow:hidden}.star-dot{position:absolute;top:47%;font-size:42px;color:#ffefcf;text-shadow:0 0 25px #ffddbd;transform:translate(-50%,-50%);transition:left 2.8s cubic-bezier(.22,.5,.24,1),top 2.8s}
+.star-dot.first{left:19%;top:34%}.star-dot.second{left:81%;top:63%}.star-stage.joined .first{left:47%;top:49%}.star-stage.joined .second{left:53%;top:49%}
+.star-stage:after{content:"";position:absolute;left:15%;right:15%;top:50%;height:1px;background:linear-gradient(90deg,transparent,#ffddc5,transparent);opacity:0;transition:opacity 2s}.star-stage.joined:after{opacity:.7}
+.cards{display:flex;flex-direction:column;gap:12px;overflow-y:auto;min-height:0;flex:1;padding:10px 2px}.lesson{border:1px solid #f0dbd5;background:#fffaf4;border-radius:13px;text-align:left;padding:18px;color:#624754;box-shadow:0 9px 24px #61445724}.lesson strong{font-family:var(--serif);font-weight:500}.lesson p{max-height:0;opacity:0;overflow:hidden;font:13px/2 var(--serif);white-space:pre-line;transition:max-height .4s,opacity .4s}.lesson.open p{margin-top:10px;max-height:300px;opacity:1}
+.walk-world{position:relative;flex:1;min-height:260px;margin:10px -23px 0;background:linear-gradient(180deg,transparent,#17172817 55%,#10112070),url('assets/chapter-04-scene.svg') center/cover;overflow:hidden}
+.walk-world:after{content:"";position:absolute;inset:auto 0 0;height:20%;background:linear-gradient(transparent,#161424a3)}
+.walker{position:absolute;bottom:13%;width:80px;height:175px;z-index:2;transform:translateX(-50%);left:var(--start);transition:left 3.65s cubic-bezier(.31,.05,.18,1);filter:drop-shadow(0 8px 12px #1713249c)}
+.walk-world.moving .walker{left:var(--end)}.walker.one{--start:10%;--end:41%}.walker.two{--start:90%;--end:59%}
+.walker .head{position:absolute;left:25px;top:7px;width:31px;height:37px;border-radius:47% 49% 44% 44%;background:#ddb2a6;border-top:11px solid #30283c}.walker.two .head{border-top-color:#4c3543}
+.walker .torso{position:absolute;left:16px;top:45px;width:49px;height:66px;border-radius:22px 22px 9px 9px;background:linear-gradient(115deg,#dfb6c3,#8d718f)}
+.walker.two .torso{background:linear-gradient(115deg,#c2b1d6,#84799e)}
+.walker .arm,.walker .leg{position:absolute;border-radius:20px;transform-origin:top;transform:rotate(0)}.walker .arm{top:52px;width:13px;height:69px;background:#bb91a8}.walker .arm.l{left:10px}.walker .arm.r{right:10px}.walker .leg{top:103px;width:14px;height:66px;background:#4a4055}.walker .leg.l{left:23px}.walker .leg.r{right:22px}
+.walk-world.moving .leg.l,.walk-world.moving .arm.r{animation:stepOne .65s ease-in-out infinite alternate}.walk-world.moving .leg.r,.walk-world.moving .arm.l{animation:stepTwo .65s ease-in-out infinite alternate}.walk-world.done .leg,.walk-world.done .arm{animation:none;transform:none}
+@keyframes stepOne{to{transform:rotate(22deg)}from{transform:rotate(-21deg)}}@keyframes stepTwo{to{transform:rotate(-21deg)}from{transform:rotate(22deg)}}
+.walk-glow{position:absolute;bottom:24%;left:36%;width:28%;height:120px;border-radius:50%;background:#ffd3b257;filter:blur(35px);opacity:0;transition:opacity 1.2s;z-index:1}.walk-world.done .walk-glow{opacity:1}
+.handnote{margin:auto;max-width:330px;padding:36px 25px;background:#f9ede5;color:#704a59;box-shadow:0 25px 60px #110b1d70;transform:rotate(-2deg);font:17px/2.15 var(--serif);white-space:pre-line;text-align:center}
+.book{width:min(79vw,320px);margin:auto;min-height:285px;padding:30px 27px;background:linear-gradient(110deg,#eddfd4,#fff9ee 7%,#fff7ee 95%,#d7b9b9);border-radius:5px 13px 13px 5px;box-shadow:-9px 12px 35px #5a405129,5px 0 #ccb3ac;position:relative;font:15px/2.2 var(--serif);color:#725665}
+.book:before{content:"";position:absolute;left:12px;top:0;bottom:0;width:1px;background:#d9bdb5}
+.postcard{border:1px solid #e4c7c4;background:#fff9ef;color:#785563;text-align:left;padding:18px;border-radius:8px;box-shadow:0 10px 25px #6843531b}.postcard strong{font-family:var(--serif);font-weight:500}.postcard p{display:none;white-space:pre-line;font:13px/2 var(--serif);margin-top:12px}.postcard.open p{display:block}
+.plane{font-size:70px;text-align:center;margin:auto;transition:transform 2.4s ease,opacity 2.4s}.plane.flying{transform:translate(180px,-220px) rotate(24deg) scale(.48);opacity:0}
+.sunrise{background:linear-gradient(180deg,#5f5b78 0%,#c58c95 55%,#f5c7a8 85%,#d9a7a4 100%)}.sunrise:before{content:"";position:absolute;left:-40%;right:-40%;bottom:24%;height:40%;background:radial-gradient(ellipse,#ffead0dd,transparent 60%);pointer-events:none}
+.door-art{background:#161528 url('assets/chapter-06-scene.svg') center/cover no-repeat}
+.door-stage{flex:1;display:grid;place-items:center;perspective:900px;min-height:0;cursor:pointer}.portal{position:relative;width:min(58vw,250px);height:min(86vw,420px);border:10px solid #a67e87;border-radius:49% 49% 5px 5px/23% 23% 5px 5px;background:radial-gradient(ellipse,#fff9d7,#dcb3a9);box-shadow:0 0 0 5px #d3a6a2,0 0 0 13px #593d4e,0 0 80px #ffdfa955,inset 0 0 60px #fff4c6;overflow:hidden;transform-style:preserve-3d;transition:transform 1.3s}
+.door-leaf{position:absolute;top:0;bottom:0;width:50.5%;z-index:3;background:repeating-linear-gradient(90deg,transparent 0 17px,#f5c8b118 18px 20px),linear-gradient(110deg,#c08b87,#825a6a);border:2px solid #deb4a7;transition:transform 1.45s cubic-bezier(.27,.03,.17,1);backface-visibility:hidden}.door-leaf:before{content:"";position:absolute;inset:17% 13% 7%;border:2px solid #f4d4bd60;border-radius:50% 50% 5px 5px/14% 14% 5px 5px}.door-leaf:after{content:"";position:absolute;top:56%;width:10px;height:10px;background:#fae1a8;border-radius:50%;box-shadow:0 0 15px #ffe9b3}
+.door-leaf.left{left:0;transform-origin:left center;border-radius:50% 0 0 0/16% 0 0 0}.door-leaf.left:after{right:8px}.door-leaf.right{right:0;transform-origin:right center;border-radius:0 50% 0 0/0 16% 0 0}.door-leaf.right:after{left:8px}
+.door-opening .door-leaf.left{transform:rotateY(-115deg)}.door-opening .door-leaf.right{transform:rotateY(115deg)}.door-opening .portal{transform:scale(1.27)}
+.door-opening .door-copy,.door-opening .door-hint{animation:vanish .9s ease forwards}@keyframes vanish{to{opacity:0;filter:blur(9px)}}.video-scene{background:#050508}.video-box{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;margin:8px -23px;position:relative}.video-box video{width:100%;height:100%;object-fit:contain;max-height:100%;background:black}.video-error{position:absolute;inset:0;background:#2c2330;display:none;flex-direction:column;gap:16px;align-items:center;justify-content:center;text-align:center;padding:20px}.video-error.show{display:flex}
+.end-message{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:23px;text-align:center}.end-message p{font:15px/2.2 var(--serif)}.end-message h1{color:#f3cad0}.end-message .heart{font-size:59px;color:#f6c7c8;text-shadow:0 0 40px #ffe4c47a}.end-actions{display:flex;flex-direction:column;gap:12px}
+@media(prefers-reduced-motion:reduce){.scene{transition:opacity .15s;filter:none;transform:none}.walker,.door-leaf,.portal,.star-dot{transition-duration:.01ms!important}}
+</style></head><body><main id="app" aria-live="polite"></main>
+<audio id="chapterMusic" src="assets/chapter-04.mp3" preload="none"></audio>
+<script>
+(()=>{'use strict';
+const $=s=>document.querySelector(s),app=$('#app'),music=$('#chapterMusic');
+const memory=[['2024.11.03','故事開始的那一天','從這一天開始，平凡的日子裡，多了一個特別的妳。','assets/memory-41.jpg'],['2024.12.25','第一個一起過的聖誕節','第一個聖誕節，因為有妳在身邊，連冬天都變得很溫暖。','assets/memory-42.jpg'],['2025.01.01','第一次一起迎接新年','新的一年開始時，我最想一起迎接的人，就是妳。','assets/memory-43.jpg'],['2025.07.19','第一次陪妳過生日','第一次陪妳過生日，希望妳那天的開心，也能一直留在往後的每一天。','assets/memory-49.jpg'],['2025.11.03','我們的第一週年','走過第一年之後，才更確定，之後的路我也都想和妳一起走。','assets/memory-47.jpg']];
+const lessons=[['先想想妳的感受','以前的我，常常先想事情有沒有道理。\n但和妳在一起之後，我慢慢懂了，\n有些時候，比起急著解釋，\n更重要的是先在意妳當下的感受。'],['不是每件事都要爭對錯','我以前總以為，\n只要把事情講清楚，問題就會變少。\n可是妳讓我知道，\n關係裡不是每一次都要分出誰對誰錯，\n有時候，理解比結論更重要。'],['好好聽妳說完','妳讓我慢慢學會，\n不要急著回應，也不要急著解釋。\n有時候先把妳的話好好聽完，\n就已經是一種在乎。']];
+const postcards=[['一起去沒去過的地方','想和妳一起去還沒去過的地方，\n不是因為風景一定多特別，\n而是想到能和妳一起出發，\n就會覺得那段路值得期待。'],['一起過那些普通的日子','比起那些特別安排的節日，\n我其實也很期待，\n和妳一起過很多看起來沒什麼特別的日子。\n吃飯、散步、說說話，這樣就很好。'],['一起慢慢變老一點','如果可以的話，\n我也想和妳一起慢慢變老一點。\n不是一下子走到很遠的以後，\n而是把每一段日子，都慢慢走長。']];
+let current='',sceneToken=0,unlocks=new Set(),seen=new Set(),selected=-1,puzzle=[2,0,3,1],holdProgress=0,holdRAF=0,holding=false,openedCount=0,planeSent=false,joined=false,walked=false,doorOpening=false,video=null;
+const scene=(klass,inner)=>'<section class="scene '+klass+'">'+inner+'</section>';
+const head=(chapter,back)=>'<div class="top"><button class="back" data-next="'+back+'" aria-label="返回">‹</button><small>'+chapter+' / 06 · OUR STORY</small><span class="tiny">♡</span></div>';
+const button=(label,id,disabled=false)=>'<button class="primary" '+(disabled?'disabled ':'')+'id="'+id+'">'+label+'</button>';
+const title=(cap,t,sub='')=>'<div class="hero"><div class="overline">'+cap+'</div><h1>'+t+'</h1>'+(sub?'<p class="sub">'+sub+'</p>':'')+'</div>';
+function days(){const fmt=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());const a=fmt.split('-').map(Number);return Math.max(0,Math.floor((Date.UTC(a[0],a[1]-1,a[2])-Date.UTC(2024,10,3))/86400000))}
+const sound=()=>'<button class="sound" id="musicToggle" aria-label="切換音樂">'+(music.paused?'♫ 播放':'♫ 暫停')+'</button>';
+function set(id){if(current===id)return;const prior=current,old=$('.scene.active');const token=++sceneToken;const enteringFour=id.startsWith('four')&&!prior.startsWith('four'),leavingFour=prior.startsWith('four')&&!id.startsWith('four');if(enteringFour){music.currentTime=0;music.play().catch(()=>{})}if(leavingFour){music.pause();music.currentTime=0}if(prior==='video'&&video)video.pause();
+let html=render(id);const wrap=document.createElement('div');wrap.innerHTML=html;let node=wrap.firstElementChild;app.appendChild(node);if(old){old.classList.remove('active');old.classList.add('exiting')}requestAnimationFrame(()=>requestAnimationFrame(()=>{node.classList.add('active')}));current=id;attach(id,node);setTimeout(()=>{if(token!==sceneToken)return;app.querySelectorAll('.scene:not(.active)').forEach(e=>e.remove())},1100)}
+function render(id){
+switch(id){
+case 'cover':return scene('cover','<div class="cover-accessible">輕觸畫面，開啟我們的故事</div>');
+case 'envelope':return scene('night',head('01','cover')+title('A LETTER FOR YOU','有一些話，<br>想換一種方式告訴妳。')+'<div class="envelope-stage"><div class="envelope-graphic" id="openEnvelope"><div class="letter-peek"></div><div class="pocket"></div><div class="fold"></div><div class="flap"></div><div class="wax">♡</div></div></div><p class="hint">輕觸信封，拆開第一封信</p>');
+case 'letter':return scene('paper-scene',head('01','envelope')+title('OUR STORY','想和妳一起讀的一封信')+'<div class="spacer"></div><article class="letter-sheet">有些日子，當下沒有覺得特別。\n可是回頭看時，才發現\n那些平凡的片刻，\n因為有妳，都變得值得收藏。\n\n這份小小的禮物，\n想邀請妳一起打開。</article><div class="spacer"></div>'+button('一起翻開我們的故事 →','nextDays'));
+case 'days':return scene('paper-scene',head('02','letter')+title('CHAPTER 02 · TIME','原來，已經一起走了這麼久','從 2024 年 11 月 3 日開始')+'<div class="spacer"></div><div id="hold" class="timeline-heart" role="button" tabindex="0" aria-label="長按讓愛心填滿"><div class="heart-shape"></div><div class="heart-fill" id="heartFill"></div><div class="heart-number">'+days()+'<small>DAYS TOGETHER</small></div></div><p class="hint">長按畫面，讓我們一起走過的時間慢慢填滿 ♡</p><div class="spacer"></div>'+button('打開那些日子 →','toMemories',holdProgress<1));
+case 'memories':return scene('paper-scene',head('02','days')+title('FIVE LETTERS','寫在時間裡的五封信','每一封，都是我想珍惜的片刻。')+'<div class="memories">'+memory.map((m,i)=>'<button class="memory-row" data-memory="'+i+'"><img src="'+m[3]+'" alt=""><div><span>'+m[0]+'　'+(seen.has(i)?'✓':'✉')+'</span><strong>'+m[1]+'</strong></div></button>').join('')+'</div><p class="hint">已打開 '+seen.size+' / 5 封信</p>'+button('把回憶收進相簿 →','toPuzzle',seen.size!==5));
+case 'memory':{const i=openedCount,m=memory[i];return scene('paper-scene',head('02','memories')+'<div class="spacer"></div><div class="photo-card"><img src="'+m[3]+'" alt="'+m[1]+'"></div><div class="hero"><div class="overline">'+m[0]+'</div><h2>'+m[1]+'</h2><p class="bodycopy">'+m[2]+'</p></div><div class="spacer"></div><div class="pager"><button id="prevMemory">← 上一張</button><button id="nextMemory"> '+(i===4?'回到信封':'下一張 →')+'</button></div>')}
+case 'puzzle':return scene('paper-scene',head('03','memories')+title('CHAPTER 03 · MEMORY','那些散落的片刻','最後都拼成了我們。')+'<div class="spacer"></div><div class="puzzle-grid" id="puzzleGrid">'+puzzle.map((n,i)=>'<button class="puzzle-tile" data-tile="'+i+'" style="background-position:'+(n%2?100:0)+'% '+(n>1?100:0)+'%" aria-label="拼圖 '+(i+1)+'"></button>').join('')+'</div><p class="hint">輕觸兩片拼圖，交換它們的位置</p><div class="spacer"></div>'+button('收藏這段回憶 →','puzzleNext',puzzle.every((n,i)=>n===i)===false));
+case 'puzzleDone':return scene('paper-scene',head('03','puzzle')+title('THE MOMENTS WE KEEP','一張照片，一段我們')+'<div class="spacer"></div><img class="puzzle-done" src="assets/memory-puzzle.jpg" alt="我們的回憶照片"><div class="spacer"></div><p class="bodycopy center">原來那些零零散散的日子，<br>早就成了我最捨不得忘記的回憶。</p><div class="spacer"></div>'+button('繼續我們的故事 →','startFour'));
+case 'fourStars':return scene('night',head('04','puzzleDone')+title('CHAPTER 04 · UNDERSTANDING','我們本來是不一樣的人','但慢慢地，也開始學著走近彼此。')+'<div class="star-stage" id="starStage"><span class="star-dot first">✦</span><span class="star-dot second">✦</span></div><p class="hint">輕觸星星，看見我們慢慢靠近</p>'+sound()+button('那些妳教會我的事 →','toLessons',!unlocks.has('stars')));
+case 'fourLessons':return scene('paper-scene',head('04','fourStars')+title('WHAT YOU TAUGHT ME','妳讓我學會的事','把卡片翻開，看看妳教會我的事。')+'<div class="cards">'+lessons.map((l,i)=>'<button class="lesson '+(unlocks.has('lesson'+i)?'open':'')+'" data-lesson="'+i+'"><strong>0'+(i+1)+'　'+l[0]+'</strong><p>'+l[1]+'</p></button>').join('')+'</div><p class="hint">已翻開 '+lessons.filter((l,i)=>unlocks.has('lesson'+i)).length+' / 3 張</p>'+button('繼續走向妳 →','toWalk',!lessons.every((l,i)=>unlocks.has('lesson'+i))));
+case 'fourWalk':return scene('night',head('04','fourLessons')+title('SIDE BY SIDE','我們不需要完全一樣','只是想慢慢學會，站在彼此身邊。')+'<div class="walk-world" id="walkWorld"><div class="walk-glow"></div>'+[1,2].map((n)=>'<div class="walker '+(n===1?'one':'two')+'"><div class="head"></div><div class="torso"></div><div class="arm l"></div><div class="arm r"></div><div class="leg l"></div><div class="leg r"></div></div>').join('')+'</div><p class="hint" id="walkHint">兩個人，慢慢走到彼此身邊。</p>'+button('留給妳的一句話 →','toWish',!walked));
+case 'fourWish':return scene('night',head('04','fourWalk')+title('A SMALL PROMISE','有一句話，想留給妳')+'<div class="spacer"></div><div class="handnote">謝謝妳讓我看見，\n原來愛一個人，\n不只是陪伴，\n也是願意因為對方，\n慢慢成為更好的人。</div><div class="spacer"></div>'+button('妳讓我學會的事 ♡ →','toFourEnd'));
+case 'fourEnd':return scene('night',head('04','fourWish')+'<div class="spacer"></div><div class="center"><div class="overline">BECAUSE OF YOU</div><h1 style="margin-top:26px">妳讓我學會的事，<br>我都有慢慢記在心裡。</h1></div><div class="spacer"></div>'+button('翻開我們的以後 →','toFive'));
+case 'fiveBook':return scene('paper-scene',head('05','fourEnd')+title('CHAPTER 05 · TOMORROW','還沒寫完的以後')+'<div class="spacer"></div><div class="book" style="display:grid;place-items:center;text-align:center">翻到這裡才發現，<br>我最期待的，<br>不只是已經發生的那些事。</div><div class="spacer"></div>'+button('翻到下一頁 →','toPostcards'));
+case 'fivePostcards':return scene('paper-scene',head('05','fiveBook')+title('POSTCARDS FROM TOMORROW','想和妳一起做的事')+'<div class="cards">'+postcards.map((p,i)=>'<button class="postcard '+(unlocks.has('postcard'+i)?'open':'')+'" data-postcard="'+i+'"><strong>✉　'+p[0]+'</strong><p>'+p[1]+'</p></button>').join('')+'</div><p class="hint">讀過 '+postcards.filter((p,i)=>unlocks.has('postcard'+i)).length+' / 3 張明信片</p>'+button('寄一封信給未來 →','toPlane',!postcards.every((p,i)=>unlocks.has('postcard'+i))));
+case 'fivePlane':return scene('sunrise',head('05','fivePostcards')+title('A LETTER TO THE FUTURE','把心願寄往未來')+'<div class="spacer"></div><button id="plane" class="plane" style="border:0;background:transparent" aria-label="放飛紙飛機">✉</button><div class="spacer"></div><p class="bodycopy center">'+(planeSent?'未來會是什麼樣子，\n我們現在都還不知道。\n但只要想到有些日子，\n也許會和妳一起走過，\n就會覺得以後也值得期待。':'輕觸紙飛機，讓它帶著心願飛出去。')+'</p><div class="spacer"></div>'+button('一起看看以後 →','toFuture',!planeSent));
+case 'fiveFuture':return scene('sunrise',head('05','fivePlane')+'<div class="spacer"></div>'+title('THE ORDINARY DAYS','我最期待的日子')+'<div class="spacer"></div><p class="bodycopy center">我希望以後那些看起來沒什麼特別的日子，<br>身邊還是有妳。<br><br>不是因為未來一定要多盛大，<br>而是有妳在的日子，<br>平凡也會變得很值得。</p><div class="spacer"></div>'+button('留下一點空白 →','toFinalBook'));
+case 'fiveFinal':return scene('paper-scene',head('05','fiveFuture')+title('TO BE CONTINUED','未完待續')+'<div class="spacer"></div><div class="book center">至於剩下的故事，<br>就留給以後的我們，<br>慢慢寫下去。<br><br>✿</div><div class="spacer"></div>'+button('打開最後一件禮物 →','toDoor'));
+case 'door':return scene('night door-art',head('06','fiveFinal')+'<div class="door-copy">'+title('THE FINAL GIFT','還有最後一件禮物','想讓妳親自打開。')+'</div><div class="door-stage" id="doorStage" aria-label="點擊打開最後一道門"><div class="portal"><div class="door-leaf left"></div><div class="door-leaf right"></div></div></div><p class="hint door-hint">輕觸畫面，打開最後一道門 ♡</p>');
+case 'video':return scene('video-scene',head('06','door')+'<div class="video-box"><video id="film" playsinline webkit-playsinline controls preload="auto" src="assets/chapter-06.mp4"></video><div class="video-error" id="videoError"><h2>影片暫時無法播放</h2><p class="sub">可以重新載入，或先看看最後的告白。</p><button class="ghost" id="retryFilm">重新載入影片</button><button class="ghost" id="skipFilm">閱讀最後的話 →</button></div></div><p class="hint">這段影片，想送給妳。</p>');
+case 'end':return scene('night',head('06','video')+'<div class="end-message"><div class="heart">♡</div><p>這些是我們一起走過的日子。</p><p>至於以後會寫下什麼樣的故事，<br>我還不知道。</p><p>但很謝謝妳，<br>出現在我的故事裡。</p><h1>兩週年快樂。♡</h1></div><div class="end-actions">'+button('再看一次影片','replay')+'<button class="ghost" id="restart">回到故事起點</button></div>');
+default:return scene('night',title('OUR STORY','未完待續'))}}
+function nav(id){const map={nextDays:'days',toMemories:'memories',toPuzzle:'puzzle',puzzleNext:'puzzleDone',startFour:'fourStars',toLessons:'fourLessons',toWalk:'fourWalk',toWish:'fourWish',toFourEnd:'fourEnd',toFive:'fiveBook',toPostcards:'fivePostcards',toPlane:'fivePlane',toFuture:'fiveFuture',toFinalBook:'fiveFinal',toDoor:'door'};if(map[id])set(map[id])}
+function attach(id,root){
+root.querySelectorAll('[data-next]').forEach(b=>b.onclick=()=>set(b.dataset.next));
+root.querySelectorAll('.primary').forEach(b=>b.onclick=()=>nav(b.id));
+if(id==='cover'){root.setAttribute('tabindex','0');root.onclick=()=>set('envelope');root.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set('envelope')}}}
+if(id==='envelope')root.querySelector('#openEnvelope').onclick=e=>{e.currentTarget.classList.add('open');setTimeout(()=>{if(current==='envelope')set('letter')},1250)};
+if(id==='days')initHold(root);
+if(id==='memories')root.querySelectorAll('[data-memory]').forEach(b=>b.onclick=()=>{openedCount=+b.dataset.memory;seen.add(openedCount);set('memory')});
+if(id==='memory'){root.querySelector('#prevMemory').style.visibility=openedCount===0?'hidden':'visible';root.querySelector('#prevMemory').onclick=()=>{openedCount--;set('memory')};root.querySelector('#nextMemory').onclick=()=>{if(openedCount===memory.length-1)set('memories');else{openedCount++;set('memory')}}}
+if(id==='puzzle')initPuzzle(root);
+if(id==='fourStars'){root.querySelector('#starStage').onclick=e=>{e.currentTarget.classList.add('joined');unlocks.add('stars');setTimeout(()=>{if(current==='fourStars')root.querySelector('#toLessons').disabled=false},2850)}}
+if(id==='fourLessons')root.querySelectorAll('[data-lesson]').forEach(b=>b.onclick=()=>{b.classList.add('open');unlocks.add('lesson'+b.dataset.lesson);root.querySelector('.hint').textContent='已翻開 '+lessons.filter((l,i)=>unlocks.has('lesson'+i)).length+' / 3 張';root.querySelector('#toWalk').disabled=!lessons.every((l,i)=>unlocks.has('lesson'+i))});
+if(id==='fourWalk'){let field=root.querySelector('#walkWorld');if(walked){field.classList.add('moving','done');root.querySelector('#toWish').disabled=false}else{requestAnimationFrame(()=>requestAnimationFrame(()=>field.classList.add('moving')));setTimeout(()=>{if(current==='fourWalk'){field.classList.add('done');walked=true;root.querySelector('#walkHint').textContent='我們不用完全一樣，也可以努力理解彼此。';root.querySelector('#toWish').disabled=false}},3700)}}
+if(id==='fivePostcards')root.querySelectorAll('[data-postcard]').forEach(b=>b.onclick=()=>{b.classList.add('open');unlocks.add('postcard'+b.dataset.postcard);root.querySelector('.hint').textContent='讀過 '+postcards.filter((l,i)=>unlocks.has('postcard'+i)).length+' / 3 張明信片';root.querySelector('#toPlane').disabled=!postcards.every((l,i)=>unlocks.has('postcard'+i))});
+if(id==='fivePlane')root.querySelector('#plane').onclick=e=>{if(planeSent)return;planeSent=true;e.currentTarget.classList.add('flying');setTimeout(()=>{if(current==='fivePlane')set('fivePlane')},1800)};
+if(id==='door'){doorOpening=false;root.onclick=e=>{if(e.target.closest('[data-next]')||doorOpening)return;doorOpening=true;root.classList.add('door-opening');const src='assets/chapter-06.mp4';if(!video){video=document.createElement('video');video.src=src;video.preload='auto';video.playsInline=true;video.style.display='none';app.appendChild(video)}video.currentTime=0;video.play().catch(()=>{});setTimeout(()=>{if(current==='door')set('video')},2400)}}
+if(id==='video'){const v=root.querySelector('#film');if(video){v.currentTime=video.currentTime;video.pause()}video=v;v.onended=()=>set('end');v.onerror=()=>root.querySelector('#videoError').classList.add('show');v.play().catch(()=>{v.controls=true});root.querySelector('#retryFilm').onclick=()=>{root.querySelector('#videoError').classList.remove('show');v.load();v.play().catch(()=>{})};root.querySelector('#skipFilm').onclick=()=>set('end')}
+if(id==='end'){root.querySelector('#replay').onclick=()=>set('video');root.querySelector('#restart').onclick=()=>{music.pause();set('cover')}}
+const toggle=root.querySelector('#musicToggle');if(toggle)toggle.onclick=()=>{if(music.paused)music.play().catch(()=>{});else music.pause();toggle.textContent=music.paused?'♫ 播放':'♫ 暫停'} }
+function initHold(root){const h=root.querySelector('#hold'),fill=root.querySelector('#heartFill');function paint(){fill.style.setProperty('--fill',holdProgress);root.querySelector('#toMemories').disabled=holdProgress<1}function tick(t){if(!holding)return;if(!h.dataset.last)h.dataset.last=t;holdProgress=Math.min(1,holdProgress+(t-Number(h.dataset.last))/11000);h.dataset.last=t;paint();if(holdProgress<1)holdRAF=requestAnimationFrame(tick);else holding=false}function start(e){if(e.cancelable)e.preventDefault();if(holding||holdProgress>=1)return;holding=true;h.dataset.last='';holdRAF=requestAnimationFrame(tick)}function stop(){holding=false;cancelAnimationFrame(holdRAF)}h.addEventListener('pointerdown',e=>{h.setPointerCapture(e.pointerId);start(e)});h.addEventListener('pointerup',stop);h.addEventListener('pointercancel',stop);h.addEventListener('lostpointercapture',stop);h.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter')start(e)});h.addEventListener('keyup',stop);paint()}
+function initPuzzle(root){let active=-1;const grid=root.querySelector('#puzzleGrid');const tiles=[...grid.querySelectorAll('.puzzle-tile')];function select(i){if(active===-1){active=i;tiles[i].classList.add('selected');return}const temp=puzzle[active];puzzle[active]=puzzle[i];puzzle[i]=temp;active=-1;tiles.forEach((t,j)=>{t.classList.remove('selected');let n=puzzle[j];t.style.backgroundPosition=(n%2?100:0)+'% '+(n>1?100:0)+'%'});root.querySelector('#puzzleNext').disabled=!puzzle.every((v,j)=>v===j)}tiles.forEach(t=>{t.onclick=()=>select(+t.dataset.tile);t.addEventListener('pointerdown',e=>{t.dataset.sx=e.clientX;t.dataset.sy=e.clientY});t.addEventListener('pointerup',e=>{const dx=e.clientX-Number(t.dataset.sx),dy=e.clientY-Number(t.dataset.sy);if(Math.abs(dx)+Math.abs(dy)<25)return;const box=grid.getBoundingClientRect(),cx=e.clientX-box.left,cy=e.clientY-box.top;if(cx<0||cy<0||cx>box.width||cy>box.height)return;const dest=(cy>box.height/2?2:0)+(cx>box.width/2?1:0);if(active===-1)active=+t.dataset.tile;select(dest)})})}
+set('cover');
+})();
 </script></body></html>
