@@ -415,6 +415,17 @@ main{height:100dvh;overflow:hidden;max-width:430px;margin:0 auto;box-shadow:0 0 
 @keyframes journeyRise{from{opacity:0;transform:translateY(19px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){#album .journey-memory{animation:none}}
 
+/* Fixed-size opening letter: all text and action space allocated before typing. */
+#envelope .first-stage{height:clamp(420px,54dvh,510px);flex:1;min-height:0}
+#envelope .first-letter-paper{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:0!important;padding:0!important;overflow:hidden!important}
+#envelope .first-letter-paper.reading{overflow:hidden!important}
+#envelope .first-letter-paper h3{flex:0 0 auto;font-size:clamp(16px,2.2dvh,20px);margin:4px 0 6px!important}
+#envelope .first-letter-paper>small{flex:0 0 auto;font-size:12px;letter-spacing:.07em}
+#envelope #firstTypedText{flex:1 1 auto;width:100%;min-height:0!important;margin:8px 0 10px!important;overflow-y:auto;scrollbar-width:none;white-space:pre-line;text-align:center;font-size:clamp(15px,2.05dvh,19px)!important;line-height:1.6!important;letter-spacing:0!important}
+#envelope #firstTypedText::-webkit-scrollbar{display:none}
+#envelope #firstContinue{flex:0 0 auto;position:relative;margin:6px 0 0!important;max-width:100%;font-size:12px;padding:12px 15px;z-index:2}
+#envelope .first-letter-paper.reading>:not(p){opacity:1}
+@media(max-height:750px){#envelope .first-stage{height:51dvh}#envelope #firstTypedText{font-size:15px!important;line-height:1.55!important}}
 /* Handwritten letters — original ChenYuluoyan Thin 2.0 (SIL OFL 1.1).
    Loaded only for letter and intimate handwritten passages; nav remains accessible. */
 @font-face{font-family:"OurStoryHandwriting";src:url("https://cdn.jsdelivr.net/gh/Chenyu-otf/chenyuluoyan_thin@main/ChenYuluoyan-2.0-Thin.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
@@ -605,7 +616,7 @@ $('firstEnvelope').addEventListener('click',()=>{
    const source=envelope.querySelector('.first-sheet').getBoundingClientRect();
    const dest=stage.getBoundingClientRect();
    const width=Math.min(dest.width-22,355);
-   const height=Math.min(dest.height-10,375);
+   const height=Math.min(dest.height-8,465);
    const parent=stage.getBoundingClientRect();
    const initial={left:source.left-parent.left,top:source.top-parent.top,width:source.width,height:source.height};
    paper.style.left=initial.left+'px';paper.style.top=initial.top+'px';
@@ -617,9 +628,9 @@ $('firstEnvelope').addEventListener('click',()=>{
       paper.style.top=((dest.height-height)/2)+'px';
       paper.style.width=width+'px';
       paper.style.height=height+'px';
-      paper.style.padding='clamp(17px,3dvh,28px) 17px';
+      paper.style.padding='22px 19px 18px';
    }));
-   firstLater(1160,()=>{paper.classList.add('reading');typeFirstLetter()});
+   firstLater(1200,()=>{paper.classList.add('reading');paper.style.transition='none';typeFirstLetter()});
  });
 });
 $('firstContinue').addEventListener('click',()=>{clearFirstTimers();go('bridge')});
