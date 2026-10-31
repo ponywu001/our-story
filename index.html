@@ -599,9 +599,9 @@ letter-spacing:.045em;line-height:1.92;
 .puzzle-floating{background:none!important;border:0!important;box-shadow:none!important;z-index:9999}
 
 /* Unified chapter-turn theatre: the book appears only between chapters. */
-.chapter-turn{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;pointer-events:all;background:radial-gradient(ellipse at center,#f8f1e9,#d8c7be);opacity:0;visibility:hidden;transition:opacity .32s,visibility .32s;overflow:hidden}
+.chapter-turn{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;pointer-events:all;background:radial-gradient(ellipse at center,#f8f1e9,#d8c7be);opacity:0;visibility:hidden;transition:opacity .48s,visibility .48s;overflow:hidden}
 .chapter-turn.visible{opacity:1;visibility:visible}
-.chapter-turn .story-volume{width:min(82vw,380px);aspect-ratio:1.25;position:relative;perspective:1200px;transform:scale(1.45);transition:transform .62s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 22px 22px #614b493e)}
+.chapter-turn .story-volume{width:min(82vw,380px);aspect-ratio:1.25;position:relative;perspective:1200px;transform:scale(1.45);transition:transform .92s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 22px 22px #614b493e)}
 .chapter-turn.visible .story-volume{transform:scale(1)}
 .chapter-turn .story-spread{position:absolute;inset:0;display:flex;border-radius:7px 15px 15px 7px;background:#fff9ee;box-shadow:inset 0 0 0 1px #d0b5a6,8px 10px 0 #b68e89;overflow:visible}
 .chapter-turn .story-page{width:50%;position:relative;padding:17px 12px;background:repeating-linear-gradient(180deg,#fffaf1 0 24px,#eee3d8 25px,#fffaf1 26px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#86636c}
@@ -612,8 +612,8 @@ letter-spacing:.045em;line-height:1.92;
 .chapter-turn .story-page em{font:normal 12px/1.6 'Songti TC',serif}
 .chapter-turn .story-bookmark{font-size:35px;margin:0 0 12px;color:#bc8e95}
 .chapter-turn .story-flip{position:absolute;left:50%;top:0;width:50%;height:100%;transform-origin:left center;transform:rotateY(0deg);backface-visibility:visible;z-index:3;border-radius:0 12px 12px 0;background:linear-gradient(95deg,#dfcec1 0%,#fffaf0 15%,#fef4e8 85%,#e5cbbc);box-shadow:4px 4px 12px #593f4930}
-.chapter-turn.turning .story-flip{transition:transform .66s cubic-bezier(.22,.7,.18,1);transform:rotateY(-178deg)}
-.chapter-turn.entering .story-volume{transform-origin:75% 50%;transform:translateX(-25%) scale(var(--chapter-page-zoom,5.5));opacity:0;transition:transform .84s cubic-bezier(.24,.6,.24,1),opacity .22s ease .61s}
+.chapter-turn.turning .story-flip{transition:transform 1.05s cubic-bezier(.22,.7,.18,1);transform:rotateY(-178deg)}
+.chapter-turn.entering .story-volume{transform-origin:75% 50%;transform:translateX(-25%) scale(var(--chapter-page-zoom,5.5));opacity:0;transition:transform 1.18s cubic-bezier(.24,.6,.24,1),opacity .3s ease .88s}
 .chapter-turn.entering{background:radial-gradient(ellipse at center,#fff8eb,#d8c7be)}
 @media(prefers-reduced-motion:reduce){.chapter-turn,.chapter-turn *, .chapter-turn .story-volume{animation:none!important;transition-duration:.08s!important}}
 
@@ -1189,7 +1189,7 @@ go=function(id){
  $('turnTo').textContent=dest[0];$('turnCaption').textContent=dest[1];
  layer.classList.remove('turning','entering');layer.classList.add('visible');layer.setAttribute('aria-hidden','false');
  const short=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- setTimeout(()=>layer.classList.add('turning'),short?30:450);
+ setTimeout(()=>layer.classList.add('turning'),short?30:780);
  setTimeout(()=>{
   // Change the underlying scene while the book occupies the entire viewport.
   beforeBookGo(id);
@@ -1198,7 +1198,7 @@ go=function(id){
   const zoom=Math.max(window.innerWidth/rightPageWidth,window.innerHeight/rect.height)*1.12;
   book.style.setProperty('--chapter-page-zoom',String(zoom));
   layer.classList.add('entering');
- },short?90:1180);
- setTimeout(()=>{layer.classList.remove('visible','turning','entering');layer.setAttribute('aria-hidden','true');chapterTurnBusy=false},short?200:2050);
+ },short?90:2050);
+ setTimeout(()=>{layer.classList.remove('visible','turning','entering');layer.setAttribute('aria-hidden','true');chapterTurnBusy=false},short?200:3400);
 };
 </script><div id="chapterTurn" class="chapter-turn" aria-hidden="true"><div class="story-volume"><div class="story-spread"><div class="story-page"><span class="story-bookmark">♡</span><small>OUR STORY</small><strong id="turnFrom">我們的故事</strong><em>已經寫下的篇章</em></div><div class="story-page"><small id="turnNumber">CHAPTER 02</small><strong id="turnTo">時間</strong><em id="turnCaption">下一頁，繼續讀下去。</em></div><div class="story-flip"></div></div></div></div></body></html>
