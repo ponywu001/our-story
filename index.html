@@ -587,6 +587,16 @@ letter-spacing:.045em;line-height:1.92;
 #fivePostcards .five-postcard p{font-family:var(--handwritten,"Songti TC",serif);font-size:clamp(16px,2.2dvh,19px);line-height:1.65;color:#775663;text-align:center;max-width:95%;margin:8px 0 0}
 #fivePostcards .five-postcard:not(.open) p{display:none}
 #fivePostcards #fivePostNext{flex-shrink:0}
+#puzzlePlay .puzzle-board{grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-template-rows:repeat(2,minmax(0,1fr))!important;gap:0!important;padding:0!important;overflow:visible!important}
+#puzzlePlay .puzzle-target{overflow:visible!important;border-radius:0}
+#puzzlePlay .puzzle-tray{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,auto);gap:4px 10px;padding:8px 12px!important;overflow:visible}
+#puzzlePlay .puzzle-tray .puzzle-fragment{width:100%!important;aspect-ratio:1.3!important;min-width:0;min-height:0}
+#puzzlePlay .puzzle-fragment{position:relative;background:none!important;border:0!important;box-shadow:none!important;overflow:visible!important;padding:0;touch-action:none}
+#puzzlePlay .puzzle-fragment.placed{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#puzzlePlay .jigsaw-art{position:absolute;left:-20%;top:-20%;width:140%;height:140%;overflow:visible;filter:drop-shadow(0 2px 2px #49344280)}
+#puzzlePlay .puzzle-hint-art{position:absolute;inset:0;opacity:.3;pointer-events:none}
+#puzzlePlay .puzzle-target.correct{border-color:transparent}
+.puzzle-floating{background:none!important;border:0!important;box-shadow:none!important;z-index:9999}
 </style></head><body><main><section class="view on cover" id="cover" role="button" tabindex="0" aria-label="輕觸任意位置開啟我們的故事"></section><section class="view intro" id="envelope"><small>A LETTER FOR YOU</small><h2>有一些話，<br>想換一種方式告訴妳。</h2><div class="first-stage" id="firstStage"><button class="first-envelope" id="firstEnvelope" type="button" aria-label="打開信封"><span class="first-back"></span><span class="first-sheet"></span><span class="first-front"></span><span class="first-flap"></span><span class="first-seal">♥</span></button><article class="first-letter-paper" id="firstLetterPaper" aria-label="給妳的一封信"><small>OUR STORY</small><h3>給妳的一封信</h3><p id="firstTypedText"></p></article></div><button class="btn first-outside-continue" id="firstContinue" type="button" disabled>開始我們的故事 →</button><small id="firstHint">輕觸信封，打開這封信</small></section><section class="view paper" id="letter"><div class="letter"><small>OUR STORY</small><h2>給妳的一封信</h2><p>有些日子，當下沒有覺得特別。<br>回頭看才發現，<br>原來每個平凡的片刻，<br>都慢慢變成了我們的故事。<br><br>這份小小的禮物，<br>想邀請妳一起打開。</p><button class="btn" data-go="bridge">開始我們的故事 →</button></div></section><section class="view intro" id="bridge" style="background:linear-gradient(180deg,#39344f,#b57e91 65%,#efb8a3)"><small>CHAPTER 02 · TIME</small><h2>走著走著，<br>就成為了我們的兩年。</h2><button class="btn" style="background:#fff9f3;color:#936d74" data-go="days">繼續走進我們的時間 →</button></section><section class="view page" id="days"><div class="nav"><button data-go="bridge">‹</button><span>02 / 06</span><span>OUR DAYS</span></div><h1 class="title">Our Days Together ♡</h1><p class="hint">我們在一起的日子</p><div class="clock-area heart-area" id="clockArea" aria-label="長按畫面讓愛心填滿" role="img"><svg viewBox="0 0 260 260" class="clock-svg" aria-hidden="true"><defs><clipPath id="heartClip"><path d="M130 228 C102 202 17 137 17 81 C17 28 94 12 130 67 C166 12 243 28 243 81 C243 137 158 202 130 228 Z"/></clipPath><linearGradient id="heartGradient" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#B76577"/><stop offset="1" stop-color="#E5A0A5"/></linearGradient></defs><path d="M130 228 C102 202 17 137 17 81 C17 28 94 12 130 67 C166 12 243 28 243 81 C243 137 158 202 130 228 Z" fill="#F0DCD8" stroke="#C9919B" stroke-width="3"/><g clip-path="url(#heartClip)"><rect id="heartLiquid" x="0" y="260" width="260" height="0" fill="url(#heartGradient)"/></g></svg><span class="heart-readout" id="heartReadout"><strong id="dayCount">0</strong><small>天</small></span></div><p class="hint" id="holdHint">長按畫面任意位置，讓時間往前走</p><div class="clock-finish" id="clockFinish" hidden>原來，我們已經一起走了這麼遠。 ♡</div><div class="datecard">開始的那天　♡　直到今天<br><br>2024.11.03 — <span id="today"></span></div><p class="hint">那些平凡的日子，<br>都慢慢變成了我們的故事。</p><div class="flex"></div><button class="btn" data-go="envelopes" id="daysNext" disabled>翻開我們的回憶 →</button></section><section class="view page" id="envelopes"><div class="nav"><button data-go="days">‹</button><span>02 / 06</span><span>OUR LETTERS</span></div><h1 class="title">五封回憶的信 ♡</h1><p class="hint">有些日子，值得再打開一次。<br>輕觸信封，慢慢打開一段回憶。</p><div class="letter-stack" id="letterStack"></div><p class="hint" id="openCount">已開啟 0 / 5 封</p><button class="btn" data-go="album" id="albumButton" disabled>翻開回憶相簿 →</button></section><section class="view memory-letter-view" id="memoryLetter"><div class="nav"><button id="letterBack" type="button">‹</button><span>OUR LETTERS</span><span id="letterNumber">01 / 05</span></div><div class="memory-letter-stage" id="memoryLetterStage"><div class="animated-envelope" id="animatedEnvelope"><div class="envelope-sheet"></div><div class="envelope-back"></div><div class="envelope-flap"></div><div class="envelope-front"></div><div class="animated-seal">♥</div></div><article class="unfolded-letter" id="unfoldedLetter"><img id="letterPhoto" alt="我們的回憶照片"><time id="letterDate"></time><h2 id="letterTitle"></h2><p id="letterQuote" aria-live="polite"></p></article></div><button class="btn" id="closeMemoryLetter" type="button" disabled>收好這封回憶 ♡</button></section><section class="view page" id="album"><div class="nav"><button data-go="envelopes">‹</button><span>02 / 06</span><span>OUR MEMORIES</span></div><h1 class="title">我們的回憶時間軸 ♡</h1><p class="hint">從相遇的那天起，沿著時間慢慢往下看。</p><div id="albumGrid" class="memory-journey" aria-label="五個重要日子的回憶時間軸"></div><button class="btn" data-go="closing">走過這些日子，繼續故事 →</button></section><section class="view page" id="timeline"><div class="nav"><button data-go="days">‹</button><span>02 / 06</span><span>OUR MEMORIES</span></div><h1 class="title">我們的時間軸 ♡</h1><p class="hint">照片、日期，還有一句想對妳說的話。<br>點擊卡片，看看當時的我們。</p><div id="list" class="timeline"></div><button class="btn" data-go="closing">繼續我們的故事 →</button></section><section class="view page detail" id="detail"><div class="nav"><button data-go="album">‹</button><span id="number">01 / 05</span><span>♡</span></div><div class="flex"></div><div class="photo"><img id="photo" alt="回憶照片"></div><time id="date"></time><h2 id="heading"></h2><p id="quote"></p><div class="arrows"><button id="prev">‹ 上一張</button><button id="next">下一張 ›</button></div><div class="flex"></div></section><section class="view page closing" id="closing"><div class="nav"><button data-go="album">‹</button><span>02 / 06</span><span>♡</span></div><div class="flex"></div><article>這些日子，<br>是我們寫下的故事。<br><br>但這不是結束，<br>而是更多故事的開始。<p>♡</p></article><div class="flex"></div><button class="btn" data-go="puzzleIntro">進入第三章 · 記憶 →</button><p class="hint">即將翻開另一段珍貴回憶</p></section><section class="view page puzzle-chapter" id="puzzleIntro">
 <div class="nav"><button data-go="closing">‹</button><span>03 / 06</span><span>MEMORIES</span></div>
 <div class="puzzle-intro-body"><div class="puzzle-kicker">CHAPTER 03 · MEMORIES</div><h1 class="title">那些散落的片刻</h1><p class="hint">有些瞬間，後來想想，<br>才知道自己會一直記得。</p><div class="intro-polaroid"><img src="assets/memory-puzzle.jpg" alt="吊椅上的親吻回憶"></div><p class="hint">有一張照片，想和妳一起重新拼好。</p></div><button class="btn" id="startPuzzle">把這段回憶拼回來 →</button></section>
@@ -707,17 +717,38 @@ let tx=0;$('detail').addEventListener('touchstart',e=>tx=e.touches[0].clientX,{p
 
 // Chapter 03: four draggable quadrants, pointer coordinates account for each iPhone viewport
 const puzzleSource='assets/memory-puzzle.jpg',puzzleBoard=$('puzzleBoard'),puzzleTray=$('puzzleTray');
-const quadrantPositions=['0% 0%','100% 0%','0% 100%','100% 100%'];
+const puzzleCols=4,puzzleRows=2,puzzleTotal=8;
+const jointV=[[1,-1,1],[-1,1,-1]],jointH=[[1,-1,1,-1]];
+function puzzleSides(i){const c=i%4,r=Math.floor(i/4);return [r===0?0:-jointH[r-1][c],c===3?0:jointV[r][c],r===1?0:jointH[r][c],c===0?0:-jointV[r][c-1]]}
+function puzzlePath(i){
+ const edges=puzzleSides(i),out=['M0 0'];
+ function draw(x,y,dx,dy,sign){
+  const p=(t,n=0)=>[(x+dx*t+dy*n).toFixed(2),(y+dy*t-dx*n).toFixed(2)].join(' ');
+  if(!sign){out.push('L'+p(1));return}
+  const h=sign*.18;
+  out.push('L'+p(.32),'C'+p(.36)+' '+p(.38,h*.2)+' '+p(.38,h*.55),
+   'C'+p(.34,h)+' '+p(.42,h*1.2)+' '+p(.5,h),
+   'C'+p(.58,h*1.2)+' '+p(.66,h)+' '+p(.62,h*.55),
+   'C'+p(.62,h*.2)+' '+p(.64)+' '+p(.68),'L'+p(1));
+ }
+ draw(0,0,100,0,edges[0]);draw(100,0,0,100,edges[1]);
+ draw(100,100,-100,0,edges[2]);draw(0,100,0,-100,edges[3]);
+ return out.join(' ')+' Z'
+}
+function puzzleArtwork(i,tag){
+ const c=i%4,r=Math.floor(i/4),id='shape'+i+'-'+tag,d=puzzlePath(i);
+ return '<svg class="jigsaw-art" viewBox="-20 -20 140 140" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><clipPath id="'+id+'"><path d="'+d+'"/></clipPath></defs><image href="'+puzzleSource+'" x="'+(-100*c)+'" y="'+(-100*r)+'" width="400" height="200" preserveAspectRatio="none" clip-path="url(#'+id+')"/><path d="'+d+'" fill="none" stroke="#fff4e9" stroke-width="1.5"/></svg>'
+}
 let puzzlePlaced=new Set(),puzzleHints=false,dragData=null;
 function initPuzzle(){
  puzzlePlaced=new Set();puzzleHints=false;puzzleBoard.replaceChildren();puzzleTray.replaceChildren();
- const order=[2,0,3,1];
- for(let i=0;i<4;i++){const slot=document.createElement('div');slot.className='puzzle-target';slot.dataset.slot=i;slot.addEventListener('pointerup',e=>{if(dragData)dropPuzzle(e.clientX,e.clientY)});puzzleBoard.appendChild(slot)}
- for(const i of order){const piece=document.createElement('button');piece.className='puzzle-fragment';piece.type='button';piece.dataset.piece=i;piece.style.backgroundPosition=quadrantPositions[i];piece.setAttribute('aria-label','照片碎片 '+(i+1));piece.addEventListener('pointerdown',startPuzzleDrag);piece.addEventListener('click',()=>{if(!dragData)placePiece(i,true)});puzzleTray.appendChild(piece)}
- $('puzzleCounter').textContent='0 / 4';$('puzzleHint').textContent='拖曳碎片到正確位置，靠近就會吸附。';
+ const order=[5,0,7,2,4,1,6,3];
+ for(let i=0;i<puzzleTotal;i++){const slot=document.createElement('div');slot.className='puzzle-target';slot.dataset.slot=i;slot.addEventListener('pointerup',e=>{if(dragData)dropPuzzle(e.clientX,e.clientY)});puzzleBoard.appendChild(slot)}
+ for(const i of order){const piece=document.createElement('button');piece.className='puzzle-fragment';piece.type='button';piece.dataset.piece=i;piece.innerHTML=puzzleArtwork(i,'tray');piece.setAttribute('aria-label','照片碎片 '+(i+1));piece.addEventListener('pointerdown',startPuzzleDrag);piece.addEventListener('click',()=>{if(!dragData)placePiece(i,true)});puzzleTray.appendChild(piece)}
+ $('puzzleCounter').textContent='0 / 8';$('puzzleHint').textContent='拖曳碎片到正確位置，靠近就會吸附。';
 }
 function startPuzzleDrag(e){if(e.button!==0)return;e.preventDefault();const original=e.currentTarget,i=Number(original.dataset.piece),rect=original.getBoundingClientRect();
- const ghost=original.cloneNode(false);ghost.classList.add('puzzle-floating');ghost.style.width=rect.width+'px';ghost.style.height=rect.height+'px';ghost.style.left=(e.clientX-rect.width/2)+'px';ghost.style.top=(e.clientY-rect.height/2)+'px';document.body.appendChild(ghost);
+ const ghost=original.cloneNode(true);const gclip=ghost.querySelector('clipPath');if(gclip){const old=gclip.id;gclip.id=old+'-drag';ghost.querySelector('image').setAttribute('clip-path','url(#'+gclip.id+')')}ghost.classList.add('puzzle-floating');ghost.style.width=rect.width+'px';ghost.style.height=rect.height+'px';ghost.style.left=(e.clientX-rect.width/2)+'px';ghost.style.top=(e.clientY-rect.height/2)+'px';document.body.appendChild(ghost);
  dragData={i,ghost,original,x:e.clientX,y:e.clientY};original.style.opacity='.35';
  window.addEventListener('pointermove',movePuzzleDrag);window.addEventListener('pointerup',endPuzzleDrag,{once:true});window.addEventListener('pointercancel',cancelPuzzleDrag,{once:true});
 }
@@ -726,13 +757,13 @@ function cancelPuzzleDrag(){if(dragData){dragData.original.style.opacity='';drag
 function endPuzzleDrag(e){if(!dragData)return;const i=dragData.i;const ok=dropPuzzle(e.clientX,e.clientY);if(!ok)dragData.original.style.opacity='';dragData.ghost.remove();dragData=null;window.removeEventListener('pointermove',movePuzzleDrag)}
 function dropPuzzle(x,y){if(!dragData)return false;const slot=puzzleBoard.children[dragData.i],r=slot.getBoundingClientRect();const pad=Math.max(22,r.width*.28);if(x>=r.left-pad&&x<=r.right+pad&&y>=r.top-pad&&y<=r.bottom+pad){placePiece(dragData.i,false);return true}return false}
 function placePiece(i,keyboard){if(puzzlePlaced.has(i))return;if(keyboard&&!puzzleHints){$('puzzleHint').textContent='用手指拖曳到對應區塊；也可點下方「顯示拼圖位置」取得提示。';return}
- puzzlePlaced.add(i);const slot=puzzleBoard.children[i];slot.classList.add('correct');const photo=document.createElement('div');photo.className='puzzle-fragment placed';photo.style.backgroundPosition=quadrantPositions[i];slot.appendChild(photo);
- const tile=puzzleTray.querySelector('[data-piece="'+i+'"]');if(tile)tile.remove();$('puzzleCounter').textContent=puzzlePlaced.size+' / 4';
+ puzzlePlaced.add(i);const slot=puzzleBoard.children[i];slot.classList.add('correct');const photo=document.createElement('div');photo.className='puzzle-fragment placed';photo.innerHTML=puzzleArtwork(i,'placed');slot.appendChild(photo);
+ const tile=puzzleTray.querySelector('[data-piece="'+i+'"]');if(tile)tile.remove();$('puzzleCounter').textContent=puzzlePlaced.size+' / 8';
  if(navigator.vibrate)navigator.vibrate(15);
- if(puzzlePlaced.size===4){$('puzzleHint').textContent='拼好了，照片回來了。♡';setTimeout(()=>{go('puzzleComplete');$('puzzleComplete').classList.add('arrive')},850)}
+ if(puzzlePlaced.size===puzzleTotal){$('puzzleHint').textContent='拼好了，照片回來了。♡';setTimeout(()=>{go('puzzleComplete');$('puzzleComplete').classList.add('arrive')},850)}
 }
 $('startPuzzle').addEventListener('click',()=>{initPuzzle();go('puzzlePlay')});
-$('puzzleSkip').addEventListener('click',()=>{puzzleHints=true;for(let i=0;i<4;i++){const slot=puzzleBoard.children[i];if(!puzzlePlaced.has(i)){slot.style.backgroundImage="url('"+puzzleSource+"')";slot.style.backgroundPosition=quadrantPositions[i];slot.style.backgroundSize='200% 200%';slot.style.opacity='.52'}}$('puzzleHint').textContent='現在可以點碎片，或拖曳到淡色圖片位置。'});
+$('puzzleSkip').addEventListener('click',()=>{puzzleHints=true;for(let i=0;i<puzzleTotal;i++){const slot=puzzleBoard.children[i];if(!puzzlePlaced.has(i)&&!slot.querySelector('.puzzle-hint-art')){const hint=document.createElement('div');hint.className='puzzle-hint-art';hint.innerHTML=puzzleArtwork(i,'hint');slot.appendChild(hint)}}$('puzzleHint').textContent='拼圖輪廓已顯示，現在也可以點碎片自動吸附。'});
 $('collectPuzzle').addEventListener('click',()=>{const e=$('puzzleComplete');e.classList.add('collecting');setTimeout(()=>{go('puzzleCollected');e.classList.remove('collecting')},750)});
 
 let firstTimers=[],firstTyping=null,firstOpening=false;
