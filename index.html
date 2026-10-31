@@ -473,8 +473,6 @@ const sharedScenePairs={
 'bridge>days':['#bridge h2','#clockArea','time'],
 'days>envelopes':['#clockArea','#letterStack','heart'],
 'envelopes>album':['#letterStack','#albumGrid','letters'],
-'envelopes>memoryLetter':['.sealed-letter.open','#animatedEnvelope','letter'],
-'memoryLetter>envelopes':['#animatedEnvelope','#letterStack','letter'],
 'album>closing':['.album-grid','.closing article','album'],
 'closing>puzzleIntro':['.closing article','.intro-polaroid','page'],
 'puzzleIntro>puzzlePlay':['.intro-polaroid','#puzzleBoard','photo'],
@@ -503,7 +501,7 @@ function flySharedObject(fromElement,toElement,kind,duration){
  const dx=to.left-from.left,dy=to.top-from.top,sx=to.width/from.width,sy=to.height/from.height;
  let animation=ghost.animate([{transform:'translate(0px,0px) scale(1,1)',opacity:1},{offset:.63,opacity:1},{transform:'translate('+dx+'px,'+dy+'px) scale('+sx+','+sy+')',opacity:.08}],{duration,easing:'cubic-bezier(.21,.7,.19,1)',fill:'forwards'});
  const cleanup=()=>{ghost.remove();toElement.style.visibility='';if(sharedFlightCleanup===cleanup)sharedFlightCleanup=null};
- sharedFlightCleanup=cleanup;animation.onfinish=cleanup;animation.oncancel=cleanup;
+ sharedFlightCleanup=cleanup;animation.onfinish=cleanup;animation.oncancel=cleanup;setTimeout(cleanup,duration+180);
 }
 function go(id){
  const next=$(id),previous=$(current);if(!next)return;
@@ -516,9 +514,9 @@ function go(id){
  if(previous){previous.classList.add('scene-exit',crossChapter?'scene-chapter':'scene-intra');previous.setAttribute('aria-hidden','true');}
  next.classList.add('on','scene-enter',crossChapter?'scene-chapter':'scene-intra');next.removeAttribute('aria-hidden');
  if(sharedFlightCleanup){sharedFlightCleanup();sharedFlightCleanup=null}
- if(pair&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+ if(pair&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches&&source){
   next.classList.add('cinematic-arrival');
-  const destination=next.querySelector(pair[1]);if(source&&destination)flySharedObject(source,destination,pair[2],sharedDuration-65);
+  const destination=next.querySelector(pair[1]);if(destination)flySharedObject(source,destination,pair[2],sharedDuration-65);
  }
  current=id;scrollTo(0,0);
  if(id==='days'){updateDays();renderClock()}if(id==='detail')showDetail();if(id==='envelope')resetFirstEnvelope();
