@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 610" role="img" aria-label="Two people sitting together at sunset">
+<defs>
+<linearGradient id="sky" x2="0" y2="1"><stop stop-color="#8c789f"/><stop offset=".36" stop-color="#df9fab"/><stop offset=".75" stop-color="#f8cba8"/><stop offset="1" stop-color="#e6aaa6"/></linearGradient>
+<linearGradient id="hill" x2="0" y2="1"><stop stop-color="#94778c"/><stop offset="1" stop-color="#463a5b"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#fff4cf" stop-opacity=".8"/><stop offset="1" stop-color="#fff4cf" stop-opacity="0"/></radialGradient>
+<linearGradient id="coat" x2="1" y2="1"><stop stop-color="#423c5b"/><stop offset="1" stop-color="#272d45"/></linearGradient>
+<linearGradient id="dress" x2="1" y2="1"><stop stop-color="#73536e"/><stop offset="1" stop-color="#493951"/></linearGradient>
+</defs>
+<path fill="url(#sky)" d="M0 0h900v610H0z"/>
+<g opacity=".4" fill="#ffe3ca"><path d="M-40 155q180-80 350 0t365-15q150-46 260-8v30q-200 56-370 30T-40 190z"/><path d="M-10 250q220-70 420-15t490-25v42q-245 80-480 16T-10 285z"/></g>
+<circle cx="520" cy="265" r="195" fill="url(#glow)"/><circle cx="520" cy="265" r="72" fill="#fff0c6"/>
+<path fill="#b897a8" opacity=".6" d="M0 391q120-90 240-20t230-5 205-45 225 13v276H0z"/>
+<path fill="#89778d" opacity=".7" d="M0 425q130-70 275 10t270-28 355 12v191H0z"/>
+<path fill="url(#hill)" d="M0 505Q205 432 390 476T900 459V610H0z"/>
+<g transform="translate(315 290)">
+<!-- two seated, rear-view silhouettes with soft organic clothing shapes -->
+<path d="M9 128q-18-19-5-48 9-24 45-24 35 4 44 37l10 115-17 70H-12l-9-76Z" fill="url(#coat)"/>
+<path d="M26 65q-24-20-15-46 11-27 40-26 34 2 39 28 4 24-16 43l-1 13-46 2z" fill="#37344b"/>
+<path d="M17 12q12-26 46-20 20 5 24 25-14-12-37-12-19 0-33 7" fill="#292b41"/>
+<path d="M132 107q-5-36 21-52 36-19 62 6 19 18 18 44l12 110-13 64H113l-10-83Z" fill="url(#dress)"/>
+<path d="M157 73q-29-15-22-48 6-33 40-35 40-1 48 32 6 30-19 52l3 20-49 0z" fill="#604359"/>
+<path d="M138 21q-6-49 46-48 43 0 46 43-11-18-29-19-40-9-63 24z" fill="#4b3a53"/>
+<path d="M131 52q-19 42-3 87l-14 75q-17-84-3-134z" fill="#493a54"/>
+<path d="M87 119q22-20 54-10l6 17q-26-4-48 21" fill="#4b3d53"/>
+<path d="M72 203q-17 26-28 76h78l-14-77" fill="#313149"/><path d="M165 218q-17 26-18 62h86l-15-62" fill="#503f56"/>
+</g>
+<g stroke="#d5a38c" stroke-width="2" stroke-linecap="round" opacity=".7"><path d="M20 610q13-57-1-92M84 610q-12-39-4-78M820 610q12-62 0-102M866 610q-17-45-8-69"/></g>
+<g fill="#e7bf9f" opacity=".65"><circle cx="27" cy="528" r="3"/><circle cx="91" cy="565" r="2"/><circle cx="837" cy="523" r="3"/><circle cx="862" cy="567" r="2"/></g>
+</svg>
