@@ -997,8 +997,8 @@ function detachMemoryPaper(){
  sheet.classList.add('detached');
  Object.assign(sheet.style,{left:left+'px',top:top+'px',width:paperBox.width+'px',height:paperBox.height+'px',maxHeight:'none',transition:'none'});
  void sheet.offsetWidth;
- const width=Math.min(stageBox.width-18,380),height=Math.min(stageBox.height-12,Math.max(340,stageBox.height*.77));
- Object.assign(sheet.style,{transition:'left .94s cubic-bezier(.2,.7,.18,1),top .94s cubic-bezier(.2,.7,.18,1),width .94s cubic-bezier(.2,.7,.18,1),height .94s cubic-bezier(.2,.7,.18,1)',left:((stageBox.width-width)/2)+'px',top:((stageBox.height-height)/2)+'px',width:width+'px',height:height+'px',padding:'clamp(13px,2.5dvh,22px)',gap:'clamp(6px,1.2dvh,13px)'});
+ const width=Math.min(stageBox.width-48,338),height=Math.min(stageBox.height-48,Math.max(320,Math.min(560,stageBox.height*.66)));
+ Object.assign(sheet.style,{transition:'left .94s cubic-bezier(.2,.7,.18,1),top .94s cubic-bezier(.2,.7,.18,1),width .94s cubic-bezier(.2,.7,.18,1),height .94s cubic-bezier(.2,.7,.18,1)',left:((stageBox.width-width)/2)+'px',top:((stageBox.height-height)/2)+'px',width:width+'px',height:height+'px',padding:'clamp(12px,2dvh,18px)',gap:'clamp(5px,1dvh,11px)'});
  sheet.classList.add('visible');
  $('animatedEnvelope').classList.add('recede');
 }
